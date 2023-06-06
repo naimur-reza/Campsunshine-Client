@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Avatar = ({image}) => {
-    return (
-        <div>
-            <img src={} alt="" />
-        </div>
-    );
+const Avatar = ({ image }) => {
+  return (
+    <div className="cursor-pointer">
+      {image ? (
+        <img className="h-9 w-9" src={image} alt="user" />
+      ) : (
+        <Link className="text-white" to="/login">
+          Login
+        </Link>
+      )}
+    </div>
+  );
 };
 
 export default Avatar;

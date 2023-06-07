@@ -7,6 +7,7 @@ import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
 import { FaSpinner } from "react-icons/fa";
 
 function SignUp() {
+  const [showPassword, setShowPassword] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -22,8 +23,23 @@ function SignUp() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ name, photoUrl, email, password }) => {
+  const onSubmit = ({ name, photoUrl, email, password, confirmPassword }) => {
+    console.log(password);
     setLoading(true);
+    const isValid = /^(?=.*[A-Z])(?=.*[\W_])[a-zA-Z0-9\W_]{6,}$/.test(password);
+
+    console.log(isValid, password);
+    if (!isValid) {
+      toast.error(
+        "Password must contain at least one special character and one uppercase letter "
+      );
+      setLoading(false);
+      return;
+    } else if (password !== confirmPassword) {
+      toast.error("Password does not match");
+      setLoading(false);
+      return;
+    }
     createUser(email, password)
       .then((res) => {
         updateUserProfile(name, photoUrl).then(() => {
@@ -34,6 +50,7 @@ function SignUp() {
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message);
         setLoading(false);
       })
       .catch((err) => {
@@ -44,7 +61,7 @@ function SignUp() {
   };
   return (
     <div className={`bg-white ${isDarkMode ? "dark:bg-gray-900" : ""}`}>
-      <div className="flex justify-center h-screen">
+      <div className="flex justify-center h-full lg:h-screen">
         <div
           className={`hidden bg-cover lg:block lg:w-2/3 ${
             isDarkMode ? "bg-gray-900 bg-opacity-40" : ""
@@ -84,8 +101,8 @@ function SignUp() {
               </p>
             </div>
 
-            <div className="mt-8">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <div className="mt-2">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                 <div>
                   <label
                     htmlFor="text"
@@ -98,7 +115,7 @@ function SignUp() {
                     {...register("name", { required: true })}
                     id="name"
                     placeholder="Your Name"
-                    className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
+                    className={`block  w-full bg-gray-100 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
                 </div>
                 <div>
@@ -113,7 +130,7 @@ function SignUp() {
                     id="photoUrl"
                     {...register("photoUrl", { required: true })}
                     placeholder="Your Photo Url"
-                    className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
+                    className={`block  w-full bg-gray-100 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
                 </div>
                 <div>
@@ -128,10 +145,9 @@ function SignUp() {
                     {...register("email", { required: true })}
                     id="email"
                     placeholder="Enter Your Email"
-                    className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
+                    className={`block  w-full bg-gray-100 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
                 </div>
-
                 <div>
                   <div className="flex justify-between mb-2">
                     <label
@@ -142,16 +158,45 @@ function SignUp() {
                   </div>
 
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     id="password"
                     {...register("password", { required: true })}
                     placeholder="Your Password"
-                    className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
+                    className={`block  w-full bg-gray-100 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
                 </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <label
+                      htmlFor="password"
+                      className="text-sm text-gray-600 dark:text-gray-200">
+                      Confirm Password
+                    </label>
+                  </div>
 
-                <div className="mt-6">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    {...register("confirmPassword", { required: true })}
+                    placeholder="Confirm Password"
+                    className={`block  w-full bg-gray-100 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
+                  />
+                  <div className="flex items-center mt-3">
+                    <input
+                      onClick={() => setShowPassword(!showPassword)}
+                      type="checkbox"
+                      name=""
+                      id=""
+                    />
+                    <span className="text-white ml-3 text-sm">
+                      Show Password
+                    </span>
+                  </div>
+                </div>
+
+                <div>
                   <button
                     disabled={loading}
                     type="submit"
@@ -162,16 +207,16 @@ function SignUp() {
                       "Sign Up"
                     )}
                   </button>
-                  <div className="flex items-center mt-3">
-                    <hr className="w-1/2 " />
-                    <p className="mx-4 text-white">Or</p>
-                    <hr className="w-1/2 " />
-                  </div>
-                  <GoogleLogin />
                 </div>
               </form>
+              <div className="flex items-center mt-3">
+                <hr className="w-1/2 " />
+                <p className="mx-4 text-white">Or</p>
+                <hr className="w-1/2 " />
+              </div>
+              <GoogleLogin />
 
-              <p className="mt-6 text-sm text-center text-gray-400">
+              <p className="mt-3 text-sm text-center text-gray-400">
                 Already have an account?{" "}
                 <Link
                   to={"/login"}

@@ -84,7 +84,7 @@ export default function PopularClasses() {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="my-container ">
+        className="my-container my-10">
         {classes &&
           classes.map((info, index) => (
             <SwiperSlide key={index}>

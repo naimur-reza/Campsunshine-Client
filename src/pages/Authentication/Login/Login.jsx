@@ -3,10 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
-import { FaSpinner } from "react-icons/fa";
+import { FaEye, FaSpinner } from "react-icons/fa";
 
 function Login() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const { logIn } = useContext(AuthContext);
@@ -88,7 +89,7 @@ function Login() {
                     name="email"
                     id="email"
                     placeholder="Enter Your Email"
-                    className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
+                    className={`block  w-full bg-gray-200 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
                 </div>
 
@@ -100,14 +101,20 @@ function Login() {
                       Password
                     </label>
                   </div>
-
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Your Password"
-                    className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
-                  />
+                  <div className="flex relative">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      placeholder="Your Password"
+                      className={`block  w-full bg-gray-200 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400 `}
+                    />
+                    <span
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-[25%] cursor-pointer hover:text-black duration-200">
+                      <FaEye size={20} className="text-gray-00  " />
+                    </span>
+                  </div>
                 </div>
 
                 <div className="mt-6">

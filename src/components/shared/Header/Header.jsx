@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Avatar from "../../Avatar/Avatar";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,13 +13,13 @@ function Header() {
     <nav className="relative bg-white shadow dark:bg-gray-800">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
-          <a href="#">
+          <Link to={"/"}>
             <img
               className="w-auto h-6 sm:h-7"
               src="https://merakiui.com/images/full-logo.svg"
               alt=""
             />
-          </a>
+          </Link>
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden">
@@ -67,26 +68,26 @@ function Header() {
           }`}
           aria-hidden={isOpen ? "false" : "true"}>
           <div className="flex flex-col md:flex-row md:mx-6">
-            <a
+            <NavLink
               className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               href="#">
               Home
-            </a>
-            <a
+            </NavLink>
+            <NavLink
               className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               href="#">
               Shop
-            </a>
-            <a
+            </NavLink>
+            <NavLink
               className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               href="#">
               Contact
-            </a>
-            <a
+            </NavLink>
+            <NavLink
               className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
               href="#">
               About
-            </a>
+            </NavLink>
           </div>
           <Avatar />
         </div>

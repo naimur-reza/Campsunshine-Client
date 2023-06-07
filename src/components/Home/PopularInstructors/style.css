@@ -1,0 +1,8 @@
+.blob {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.098), rgba(0, 0, 0, 0.081)),
+    url("/src/assets/home/blob.svg");
+
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+}

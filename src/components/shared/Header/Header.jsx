@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Avatar from "../../Avatar/Avatar";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import MenuItems from "./MenuItems";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -89,7 +94,12 @@ function Header() {
               About
             </NavLink>
           </div>
-          <Avatar />
+          <Avatar
+            setMenuOpen={setMenuOpen}
+            menuOpen={menuOpen}
+            image={user?.photoURL}
+          />
+          {menuOpen && <MenuItems />}
         </div>
       </div>
     </nav>

@@ -4,7 +4,8 @@ import student from "../../../assets/home/student.png";
 import teacher from "../../../assets/home/teacher.png";
 import service from "../../../assets/home/service.png";
 import certificate from "../../../assets/home/certificate.png";
-import ServicesCard from "../Slider/ServicesCard";
+import ServicesCard from "./ServicesCard";
+
 const Services = () => {
   // todo: add services from api
   const data = [
@@ -30,7 +31,7 @@ const Services = () => {
     },
   ];
   return (
-    <div className="bg-gray-100 py-10">
+    <div className="bg-gray-100 py-10 mb-10">
       <SectionTitle
         title={"Our Services"}
         subTitle={

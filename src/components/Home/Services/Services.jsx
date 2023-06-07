@@ -30,7 +30,7 @@ const Services = () => {
     },
   ];
   return (
-    <div>
+    <div className="bg-gray-100 py-10">
       <SectionTitle
         title={"Our Services"}
         subTitle={

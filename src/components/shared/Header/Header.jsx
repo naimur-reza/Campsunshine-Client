@@ -3,7 +3,7 @@ import Avatar from "../../Avatar/Avatar";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import MenuItems from "./MenuItems";
-
+import logo from "../../../assets/logo.png";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,16 +15,17 @@ function Header() {
   };
 
   return (
-    <nav className="relative bg-white shadow dark:bg-gray-800">
+    <nav className="z-10 w-full  fixed   ">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
-          <Link to={"/"}>
-            <img
-              className="w-auto h-6 sm:h-7"
-              src="https://merakiui.com/images/full-logo.svg"
-              alt=""
-            />
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link to={"/"}>
+              <img className="w-12 h-12" src={logo} alt="" />
+            </Link>
+            <p className=" text-xl font-semibold text-yellow-400 uppercase ">
+              CampSunshine
+            </p>
+          </div>
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden">

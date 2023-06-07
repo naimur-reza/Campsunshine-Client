@@ -4,7 +4,7 @@ import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { FaEye, FaSpinner } from "react-icons/fa";
-
+import logo from "../../../assets/logo.png";
 function Login() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +43,7 @@ function Login() {
           }`}
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)",
+              "url(https://img.freepik.com/free-photo/couple-tourists-enjoying-camping-by-lake_335224-1342.jpg?w=740&t=st=1686136315~exp=1686136915~hmac=eb36131a1f85baa4748a6a182286f62f2b89f584bc08fb750ff2c1ceaed3581a)",
           }}>
           <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
             <div>
@@ -64,11 +64,7 @@ function Login() {
           <div className="flex-1">
             <div className="text-center">
               <div className="flex justify-center mx-auto">
-                <img
-                  className="w-auto h-7 sm:h-8"
-                  src="https://merakiui.com/images/logo.svg"
-                  alt=""
-                />
+                <img className="w-12 " src={logo} alt="" />
               </div>
 
               <p className="mt-3 text-gray-500 dark:text-gray-300">

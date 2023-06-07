@@ -1,13 +1,36 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
 
 function SignUp() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
+  const navigate = useNavigate();
+  const { user, createUser, updateUserProfile } = useContext(AuthContext);
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = ({ name, photoUrl, email, password }) => {
+    createUser(email, password)
+      .then((res) => {
+        updateUserProfile(name, photoUrl).then(() => {
+          toast.success("Account created successfully");
+          navigate("/");
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className={`bg-white ${isDarkMode ? "dark:bg-gray-900" : ""}`}>
       <div className="flex justify-center h-screen">
@@ -51,7 +74,7 @@ function SignUp() {
             </div>
 
             <div className="mt-8">
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div>
                   <label
                     htmlFor="text"
@@ -61,6 +84,7 @@ function SignUp() {
                   <input
                     type="text"
                     name="name"
+                    {...register("name", { required: true })}
                     id="name"
                     placeholder="Your Name"
                     className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
@@ -76,6 +100,7 @@ function SignUp() {
                     type="url"
                     name="photoUrl"
                     id="photoUrl"
+                    {...register("photoUrl", { required: true })}
                     placeholder="Your Photo Url"
                     className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
@@ -89,6 +114,7 @@ function SignUp() {
                   <input
                     type="email"
                     name="email"
+                    {...register("email", { required: true })}
                     id="email"
                     placeholder="Enter Your Email"
                     className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
@@ -108,6 +134,7 @@ function SignUp() {
                     type="password"
                     name="password"
                     id="password"
+                    {...register("password", { required: true })}
                     placeholder="Your Password"
                     className={`block  w-full bg-gray-300 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                   />
@@ -115,6 +142,7 @@ function SignUp() {
 
                 <div className="mt-6">
                   <button
+                    type="submit"
                     className={`w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50`}>
                     Sign Up
                   </button>

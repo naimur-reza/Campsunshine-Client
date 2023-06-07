@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .acitve {
-    @apply text-yellow-500 
+  @apply text-yellow-500;
+}
+
+.my-container {
+  @apply max-w-6xl mx-auto;
 }

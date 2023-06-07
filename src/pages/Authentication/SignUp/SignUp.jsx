@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
+import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
 
 function SignUp() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -146,6 +147,12 @@ function SignUp() {
                     className={`w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50`}>
                     Sign Up
                   </button>
+                  <div className="flex items-center mt-3">
+                    <hr className="w-1/2 " />
+                    <p className="mx-4 text-white">Or</p>
+                    <hr className="w-1/2 " />
+                  </div>
+                  <GoogleLogin />
                 </div>
               </form>
 
@@ -156,7 +163,6 @@ function SignUp() {
                   className="text-blue-500 focus:outline-none focus:underline hover:underline">
                   Sign in
                 </Link>
-                .
               </p>
             </div>
           </div>

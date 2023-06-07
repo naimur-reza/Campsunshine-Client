@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
+import { FaSpinner } from "react-icons/fa";
 
 function SignUp() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { user, createUser, updateUserProfile } = useContext(AuthContext);
   const toggleDarkMode = () => {
@@ -21,15 +23,18 @@ function SignUp() {
   } = useForm();
 
   const onSubmit = ({ name, photoUrl, email, password }) => {
+    setLoading(true);
     createUser(email, password)
       .then((res) => {
         updateUserProfile(name, photoUrl).then(() => {
           toast.success("Account created successfully");
           navigate("/");
+          setLoading(false);
         });
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   };
   return (
@@ -143,9 +148,14 @@ function SignUp() {
 
                 <div className="mt-6">
                   <button
+                    disabled={loading}
                     type="submit"
                     className={`w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50`}>
-                    Sign Up
+                    {loading ? (
+                      <FaSpinner className="m-auto animate-spin" size={24} />
+                    ) : (
+                      "Sign Up"
+                    )}
                   </button>
                   <div className="flex items-center mt-3">
                     <hr className="w-1/2 " />

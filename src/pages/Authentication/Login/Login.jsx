@@ -1,11 +1,36 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
+import { FaSpinner } from "react-icons/fa";
 
 function Login() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const { logIn } = useContext(AuthContext);
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+  };
+
+  const handleLogin = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    const { email, password } = e.target;
+
+    logIn(email.value, password.value)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Login successfully");
+        navigate("/");
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+        setLoading(false);
+      });
   };
 
   return (
@@ -51,7 +76,7 @@ function Login() {
             </div>
 
             <div className="mt-8">
-              <form>
+              <form onSubmit={handleLogin}>
                 <div>
                   <label
                     htmlFor="email"
@@ -87,10 +112,22 @@ function Login() {
 
                 <div className="mt-6">
                   <button
+                    disabled={loading}
+                    type="submit"
                     className={`w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50`}>
-                    Sign in
+                    {loading ? (
+                      <FaSpinner className="m-auto animate-spin" size={24} />
+                    ) : (
+                      "Sign In"
+                    )}
                   </button>
                 </div>
+                <div className="flex items-center mt-3">
+                  <hr className="w-1/2 " />
+                  <p className="mx-4 text-white">Or</p>
+                  <hr className="w-1/2 " />
+                </div>
+                <GoogleLogin />
               </form>
 
               <p className="mt-6 text-sm text-center text-gray-400">

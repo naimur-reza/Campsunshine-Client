@@ -22,7 +22,7 @@ const MenuItems = () => {
         </li>
         <li>
           <Link
-            onClick={() => handleLogout}
+            onClick={() => handleLogout()}
             className="hover:bg-gray-200 block hover:text-black px-2 py-2 rounded-md transition-all">
             Logout
           </Link>

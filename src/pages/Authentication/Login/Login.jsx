@@ -122,13 +122,13 @@ function Login() {
                     )}
                   </button>
                 </div>
-                <div className="flex items-center mt-3">
-                  <hr className="w-1/2 " />
-                  <p className="mx-4 text-white">Or</p>
-                  <hr className="w-1/2 " />
-                </div>
-                <GoogleLogin />
               </form>
+              <div className="flex items-center mt-3">
+                <hr className="w-1/2 " />
+                <p className="mx-4 text-white">Or</p>
+                <hr className="w-1/2 " />
+              </div>
+              <GoogleLogin />
 
               <p className="mt-6 text-sm text-center text-gray-400">
                 Don't have an account yet?{" "}

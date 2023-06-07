@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+          <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-200" />
 
           <div className="flex flex-col items-center sm:flex-row sm:justify-between">
             <p className="text-sm text-gray-500 dark:text-white">

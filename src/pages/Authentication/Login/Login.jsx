@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import GoogleLogin from "../../../components/shared/SocialLogin/GoogleLogin";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { FaEye, FaSpinner } from "react-icons/fa";
@@ -9,6 +9,8 @@ function Login() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
   const [loading, setLoading] = useState(false);
   const { logIn } = useContext(AuthContext);
   const toggleDarkMode = () => {
@@ -24,7 +26,7 @@ function Login() {
       .then((res) => {
         console.log(res.user);
         toast.success("Login successfully");
-        navigate("/");
+        navigate(from, { replace: true });
         setLoading(false);
       })
       .catch((err) => {

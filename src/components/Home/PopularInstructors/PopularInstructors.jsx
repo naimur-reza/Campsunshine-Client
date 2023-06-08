@@ -18,7 +18,7 @@ const PopularInstructors = () => {
 
   const teachers = [
     {
-      id: 1,
+      _id: 1,
       name: "John Doe",
       teaching: "Bangla",
       students: 100,
@@ -26,7 +26,7 @@ const PopularInstructors = () => {
       image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
     },
     {
-      id: 1,
+      _id: 2,
       name: "John Doe",
       teaching: "English",
       students: 100,
@@ -34,7 +34,7 @@ const PopularInstructors = () => {
       image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
     },
     {
-      id: 1,
+      _id: 3,
       name: "John Doe",
       teaching: "Math",
       students: 100,
@@ -42,7 +42,7 @@ const PopularInstructors = () => {
       image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
     },
     {
-      id: 1,
+      _id: 4,
       name: "John Doe",
       teaching: "Biology",
       students: 100,
@@ -50,7 +50,7 @@ const PopularInstructors = () => {
       image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
     },
     {
-      id: 1,
+      _id: 5,
       name: "John Doe",
       teaching: "Bangla",
       students: 100,
@@ -58,7 +58,7 @@ const PopularInstructors = () => {
       image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
     },
     {
-      id: 1,
+      _id: 6,
       name: "John Doe",
       teaching: "Physics",
       students: 100,
@@ -83,11 +83,12 @@ const PopularInstructors = () => {
         }}
         modules={[FreeMode, Pagination]}
         className="my-container my-10">
-        {teachers.map((teacher) => (
-          <SwiperSlide key={teacher.id}>
-            <InstructorCard info={teacher} />
-          </SwiperSlide>
-        ))}
+        {teachers &&
+          teachers.map((teacher) => (
+            <SwiperSlide key={teacher._id}>
+              <InstructorCard key={teacher._id} info={teacher} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

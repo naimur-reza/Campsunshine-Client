@@ -88,7 +88,7 @@ export default function PopularClasses() {
         {classes &&
           classes.map((info, index) => (
             <SwiperSlide key={index}>
-              <ClassesCard info={info} />
+              <ClassesCard key={index} info={info} />
             </SwiperSlide>
           ))}
       </Swiper>

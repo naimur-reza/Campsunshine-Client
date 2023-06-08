@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
-import GoogleLogin from "../../../components/shared/SocailLogin/GoogleLogin";
+import GoogleLogin from "../../../components/shared/SocialLogin/GoogleLogin";
 import { FaSpinner } from "react-icons/fa";
 
 function SignUp() {

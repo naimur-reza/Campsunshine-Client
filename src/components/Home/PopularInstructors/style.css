@@ -4,5 +4,6 @@
 
   background-repeat: no-repeat;
   background-position: bottom;
+  background-attachment: fixed;
   background-size: cover;
 }

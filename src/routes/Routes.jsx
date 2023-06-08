@@ -10,6 +10,8 @@ import Spinner from "../components/shared/Spinner/Spinner";
 import ManageClasses from "../pages/Dashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import AddClass from "../pages/Dashboard/AddClass";
+import MySelectedClasses from "../pages/Dashboard/MySelectedClasses";
+import MyEnrolledClasses from "../pages/Dashboard/MyEnrolledClasses";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       { path: "/dashboard/Manage-users", element: <ManageUsers /> },
       { path: "/dashboard/add-class", element: <AddClass /> },
       { path: "/dashboard/my-classes", element: <ManageClasses /> },
+      {
+        path: "/dashboard/my-selected-classes",
+        element: <MySelectedClasses />,
+      },
+      {
+        path: "/dashboard/my-enrolled-classes",
+        element: <MyEnrolledClasses />,
+      },
     ],
   },
 ]);

@@ -9,6 +9,7 @@ import { FcSettings } from "react-icons/fc";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import InstructorMenu from "../MenuBar/InstructorMenu";
+import StudentMenu from "../MenuBar/StudentMenu";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(true);
@@ -56,7 +57,8 @@ const Sidebar = () => {
         <hr />
         {/*Todo: dynamic role to changing the menus*/}
         {/* <AdminMenu /> */}
-        <InstructorMenu />
+        {/* <InstructorMenu /> */}
+        <StudentMenu />
         <div className="">
           <hr />
           <NavLink

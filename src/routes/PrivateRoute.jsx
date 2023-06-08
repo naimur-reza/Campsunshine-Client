@@ -10,7 +10,9 @@ const PrivateRoute = ({ children }) => {
   console.log(location);
   const navigate = useNavigate();
   const from = location.pathname;
-  if (loading) return <Spinner />;
+  if (loading) {
+    <Spinner />;
+  }
   if (user) return children;
 
   return useEffect(() => {

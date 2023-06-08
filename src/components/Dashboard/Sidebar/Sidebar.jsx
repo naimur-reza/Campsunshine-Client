@@ -1,15 +1,25 @@
 import logo from "../../../assets/logo.png";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import AdminMenu from "../MenuBar/AdminMenu";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
 const Sidebar = () => {
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState(true);
+  const { user, logOut } = useContext(AuthContext);
   const handleToggle = () => {
     setIsActive(!isActive);
+  };
+  const handleLogOut = () => {
+    logOut().then((res) => {
+      toast.success("Logout Successful");
+      navigate("/login");
+    });
   };
 
   return (
@@ -59,7 +69,7 @@ const Sidebar = () => {
             <span className="mx-4 font-medium">Profile</span>
           </NavLink>
           <button
-            // onClick={handleLogOut}
+            onClick={handleLogOut}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform">
             <GrLogout className="w-5 h-5" />
 

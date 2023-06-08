@@ -11,5 +11,5 @@
 }
 
 .acitve {
-  @apply text-teal-500 flex items-center gap-3;
+  @apply text-teal-500;
 }

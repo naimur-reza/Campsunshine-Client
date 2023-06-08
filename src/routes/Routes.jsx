@@ -6,6 +6,7 @@ import SignUp from "../pages/Authentication/SignUp/SignUp";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import Spinner from "../components/shared/Spinner/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/1",
+    element: <Spinner />,
   },
   {
     path: "/dashboard",

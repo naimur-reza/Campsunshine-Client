@@ -4,9 +4,11 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Authentication/Login/Login";
 import SignUp from "../pages/Authentication/SignUp/SignUp";
 import DashboardLayout from "../layout/DashboardLayout";
-import Dashboard from "../pages/Dashboard/Dashboard";
+
 import PrivateRoute from "./PrivateRoute";
 import Spinner from "../components/shared/Spinner/Spinner";
+import ManageClasses from "../pages/Dashboard/ManageClasses";
+import ManageUsers from "../pages/Dashboard/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,11 @@ const router = createBrowserRouter([
         <DashboardLayout />
       </PrivateRoute>
     ),
-    children: [{ path: "/dashboard/", element: <Dashboard /> }],
+    children: [
+      { path: "/dashboard/", element: <ManageClasses /> },
+      { path: "/dashboard/Manage-classes", element: <ManageClasses /> },
+      { path: "/dashboard/Manage-users", element: <ManageUsers /> },
+    ],
   },
 ]);
 

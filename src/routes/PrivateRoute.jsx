@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   const navigate = useNavigate();
   const from = location.pathname;
   if (loading) {
-    <Spinner />;
+    return <Spinner />;
   }
   if (user) return children;
 

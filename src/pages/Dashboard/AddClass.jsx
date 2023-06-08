@@ -1,7 +1,8 @@
 import React from "react";
+import AddClassForm from "../../Forms/AddClassForm";
 
 const AddClass = () => {
-  return <div>Add class</div>;
+  return <AddClassForm />;
 };
 
 export default AddClass;

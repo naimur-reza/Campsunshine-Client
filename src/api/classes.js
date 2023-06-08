@@ -11,5 +11,5 @@ export const addClass = async (data) => {
 
 export const getClasses = async () => {
   const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
-  return res;
+  return res.data;
 };

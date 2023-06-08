@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../providers/AuthProvider";
 
-const AddClassForm = ({ handleSubmit, onSubmit, register }) => {
+const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
   const { user } = useContext(AuthContext);
 
   return (
@@ -96,7 +96,11 @@ const AddClassForm = ({ handleSubmit, onSubmit, register }) => {
 
         <div className="flex justify-end mt-6">
           <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-            Save
+            {loading ? (
+              <div className="w-5 h-5 rounded-full border-dashed border-white animate-spin border-2 m-auto" />
+            ) : (
+              "Save"
+            )}
           </button>
         </div>
       </form>

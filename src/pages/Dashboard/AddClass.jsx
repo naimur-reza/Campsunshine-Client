@@ -32,7 +32,7 @@ const AddClass = () => {
         })
           .then((res) => {
             console.log(res);
-            if (res.insertedId) {
+            if (res.data.insertedId) {
               toast.success("Class added successfully");
               setLoading(false);
               navigate("/dashboard/my-classes");
@@ -55,6 +55,7 @@ const AddClass = () => {
       handleSubmit={handleSubmit}
       onSubmit={onSubmit}
       register={register}
+      loading={loading}
     />
   );
 };

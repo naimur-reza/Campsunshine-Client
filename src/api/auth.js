@@ -14,7 +14,8 @@ export const saveUser = async (user) => {
 
 // get user role
 export const getRole = async (email) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/users/${email}`);
-  const user = res.data;
-  return user.role;
+  const res = await fetch(`${import.meta.env.VITE_API_URL}/users/${email}`);
+  const data = await res.json();
+  // const user = data;
+  return data.role;
 };

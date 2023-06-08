@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../providers/AuthProvider";
 
-const AddClassForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+const AddClassForm = ({ handleSubmit, onSubmit, register }) => {
+  const { user } = useContext(AuthContext);
+
   return (
     <section className="max-w-5xl p-6 mx-auto bg-white rounded-md shadow-md  ">
       <h2 className="text-lg bg-teal-400 px-5 py-2 rounded-md text-white font-semibold  capitalize ">
@@ -23,6 +19,7 @@ const AddClassForm = () => {
             </label>
             <input
               id="className"
+              {...register("className", { required: true })}
               type="text"
               placeholder="class name"
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
@@ -30,11 +27,13 @@ const AddClassForm = () => {
           </div>
 
           <div>
-            <label className="text-gray-700 " htmlFor="emailAddress">
+            <label className="text-gray-700 " htmlFor="image">
               Class Image
             </label>
             <input
-              id="emailAddress"
+              id="image"
+              {...register("image", { required: true })}
+              placeholder="image"
               type="file"
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
@@ -46,6 +45,9 @@ const AddClassForm = () => {
             </label>
             <input
               id="name"
+              {...register("name", { required: true })}
+              value={user?.displayName}
+              //   disabled
               placeholder="your name"
               type="text"
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
@@ -60,6 +62,9 @@ const AddClassForm = () => {
               id="email"
               placeholder="email"
               type="email"
+              {...register("email", { required: true })}
+              value={user?.email}
+              //   disabled
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
@@ -69,7 +74,8 @@ const AddClassForm = () => {
             </label>
             <input
               id="seats"
-              type="text"
+              type="number"
+              {...register("seats", { required: true, valueAsNumber: true })}
               placeholder="seats"
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
@@ -81,7 +87,8 @@ const AddClassForm = () => {
             <input
               id="price"
               placeholder="Price"
-              type="text"
+              {...register("price", { required: true, valueAsNumber: true })}
+              type="number"
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>

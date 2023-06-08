@@ -9,3 +9,7 @@
 .my-container {
   @apply max-w-6xl mx-auto;
 }
+
+.acitve {
+  @apply text-teal-500 flex items-center gap-3;
+}

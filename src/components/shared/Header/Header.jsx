@@ -32,7 +32,7 @@ function Header() {
             <button
               onClick={toggleMenu}
               type="button"
-              className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+              className="text-gray-500   hover:text-gray-600   focus:outline-none focus:text-gray-600  "
               aria-label="toggle menu">
               {!isOpen ? (
                 <svg
@@ -76,22 +76,37 @@ function Header() {
           <div className="flex flex-col md:flex-row md:mx-6">
             <NavLink
               to={"/"}
-              className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">
+              className={({ isActive }) =>
+                isActive ? "text-teal-500 ms-4" : "ms-4"
+              }>
               Home
             </NavLink>
             <NavLink
               to={"/instructors"}
-              className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">
+              className={({ isActive }) =>
+                isActive ? "text-teal-500 ms-4" : "ms-4"
+              }>
               Instructors
             </NavLink>
             <NavLink
+              to={"/classes"}
+              className={({ isActive }) =>
+                isActive ? "text-teal-500 ms-4" : "ms-4"
+              }>
+              Classes
+            </NavLink>
+            <NavLink
               to={"/dashboard"}
-              className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">
+              className={({ isActive }) =>
+                isActive ? "text-teal-500 ms-4" : "ms-4"
+              }>
               Dashboard
             </NavLink>
             <NavLink
               to={"/about"}
-              className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0">
+              className={({ isActive }) =>
+                isActive ? "text-teal-500 ms-4" : "ms-4"
+              }>
               About
             </NavLink>
           </div>

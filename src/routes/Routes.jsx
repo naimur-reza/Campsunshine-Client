@@ -12,12 +12,16 @@ import ManageUsers from "../pages/Dashboard/ManageUsers";
 import AddClass from "../pages/Dashboard/AddClass";
 import MySelectedClasses from "../pages/Dashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/MyEnrolledClasses";
+import Classes from "../pages/Classes/Classes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    children: [{ path: "/", element: <Home /> }],
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/classes", element: <Classes /> },
+    ],
   },
   {
     path: "/login",

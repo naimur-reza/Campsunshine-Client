@@ -29,6 +29,7 @@ const AddClass = () => {
           seats,
           price,
           email,
+          status: "pending",
         })
           .then((res) => {
             console.log(res);

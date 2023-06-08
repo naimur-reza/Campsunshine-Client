@@ -6,23 +6,23 @@ const AdminMenu = () => {
   return (
     <div className="uppercase space-y-4 ">
       <NavLink
-        className={`${({ isActive }) =>
-          isActive
-            ? "active"
-            : "flex items-center gap-3 "} flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform
-       `}
+        className={({ isActive }) =>
+          `flex items-center px-4 py-2 mt-5  gap-3 transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
+            isActive ? "  bg-teal-400 text-white" : "text-gray-600"
+          }`
+        }
         to={"/dashboard/manage-classes"}>
-        <SiGoogleclassroom size={24} />
+        <SiGoogleclassroom size={20} />
         Manage Classes
       </NavLink>
       <NavLink
-        className={`${({ isActive }) =>
-          isActive
-            ? "active"
-            : " "} text-gray-600 flex items-center gap-3 px-4 py-2 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform
-       `}
+        className={({ isActive }) =>
+          `flex items-center px-4 py-2 mt-5 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
+            isActive ? " bg-teal-400 text-white" : "text-gray-600"
+          } `
+        }
         to={"/dashboard/manage-users"}>
-        <FiUsers size={24} />
+        <FiUsers size={20} />
         Manage Users
       </NavLink>
     </div>

@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import AdminMenu from "../MenuBar/AdminMenu";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -48,20 +48,20 @@ const Sidebar = () => {
         className={`z-10 md:fixed flex flex-col  overflow-x-hidden  border-r border-gray-300 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}>
-        <div className="cursor-pointer flex items-center gap-3">
+        <Link to={"/"} className="cursor-pointer flex items-center gap-3">
           <img className="w-auto   h-10 " src={logo} alt="" />
           <p className="mt-1">CAMPSUNSHINE</p>
-        </div>
+        </Link>
         <hr />
-        {/* Add other sidebar conxtent here */}
+        {/*Todo: dynamic role to changing the menus*/}
         <AdminMenu />
         <div className="">
           <hr />
           <NavLink
             to="/dashboard/profile"
             className={({ isActive }) =>
-              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-teal-400 hover:text-white ${
+                isActive ? "bg-teal-400 text-white" : "text-gray-600"
               }`
             }>
             <FcSettings className="w-5 h-5" />
@@ -70,7 +70,7 @@ const Sidebar = () => {
           </NavLink>
           <button
             onClick={handleLogOut}
-            className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform">
+            className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-red-500 hover:text-white transition-colors duration-300 transform">
             <GrLogout className="w-5 h-5" />
 
             <span className="mx-4 font-medium">Logout</span>

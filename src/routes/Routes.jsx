@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import Spinner from "../components/shared/Spinner/Spinner";
 import ManageClasses from "../pages/Dashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
+import AddClass from "../pages/Dashboard/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,8 @@ const router = createBrowserRouter([
       { path: "/dashboard/", element: <ManageClasses /> },
       { path: "/dashboard/Manage-classes", element: <ManageClasses /> },
       { path: "/dashboard/Manage-users", element: <ManageUsers /> },
+      { path: "/dashboard/add-class", element: <AddClass /> },
+      { path: "/dashboard/my-classes", element: <ManageClasses /> },
     ],
   },
 ]);

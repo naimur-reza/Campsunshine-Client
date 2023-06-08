@@ -8,6 +8,7 @@ import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
+import InstructorMenu from "../MenuBar/InstructorMenu";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(true);
@@ -54,7 +55,8 @@ const Sidebar = () => {
         </Link>
         <hr />
         {/*Todo: dynamic role to changing the menus*/}
-        <AdminMenu />
+        {/* <AdminMenu /> */}
+        <InstructorMenu />
         <div className="">
           <hr />
           <NavLink

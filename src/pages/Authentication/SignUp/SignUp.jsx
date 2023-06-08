@@ -5,11 +5,13 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import GoogleLogin from "../../../components/shared/SocialLogin/GoogleLogin";
 import { FaSpinner } from "react-icons/fa";
+import { saveUser } from "../../../api/auth";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const { user, createUser, updateUserProfile } = useContext(AuthContext);
   const toggleDarkMode = () => {
@@ -44,6 +46,7 @@ function SignUp() {
       .then((res) => {
         updateUserProfile(name, photoUrl).then(() => {
           toast.success("Account created successfully");
+          saveUser(res.user);
           navigate("/");
           setLoading(false);
         });

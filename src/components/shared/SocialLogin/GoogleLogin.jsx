@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { saveUser } from "../../../api/auth";
 
 const GoogleLogin = () => {
   const navigate = useNavigate();
@@ -8,6 +9,7 @@ const GoogleLogin = () => {
   const handleGoogleLogin = () => {
     signInWithGoogle().then((res) => {
       console.log(res.user);
+      saveUser(res.user);
       navigate("/");
     });
   };

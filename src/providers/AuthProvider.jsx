@@ -10,12 +10,15 @@ import {
   getAuth,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import axios from "axios";
+import { getRole } from "../api/auth";
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -45,6 +48,11 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  // get user role
+  useEffect(() => {
+    getRole(user?.email).then((data) => setRole(data));
+  }, [user]);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -61,6 +69,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     signInWithGoogle,
     updateUserProfile,
+    role,
+    setRole,
   };
   return (
     <div>

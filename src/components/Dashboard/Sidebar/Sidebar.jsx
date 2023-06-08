@@ -13,7 +13,8 @@ import StudentMenu from "../MenuBar/StudentMenu";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(true);
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, role } = useContext(AuthContext);
+  console.log(role);
   const handleToggle = () => {
     setIsActive(!isActive);
   };
@@ -55,10 +56,10 @@ const Sidebar = () => {
           <p className="mt-1">CAMPSUNSHINE</p>
         </Link>
         <hr />
-        {/*Todo: dynamic role to changing the menus*/}
-        {/* <AdminMenu /> */}
-        {/* <InstructorMenu /> */}
-        <StudentMenu />
+        {/* role check from here */}
+        {role === "admin" && <AdminMenu />}
+        {role === "instructor " && <InstructorMenu />}
+        {role === "student" && <StudentMenu />}
         <div className="">
           <hr />
           <NavLink

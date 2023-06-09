@@ -1,21 +1,35 @@
 import { updateCurrentUser } from "firebase/auth";
 import React, { useContext } from "react";
-import { FaChalkboardTeacher } from "react-icons/fa";
+import { FaChalkboardTeacher, FaTrash } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
-import { updateUserRole } from "../../api/auth";
+import { removeUser, updateUserRole } from "../../api/auth";
+import { SiNano } from "react-icons/si";
+import Spinner from "../shared/Spinner/Spinner";
 
-const ManageUsersRow = ({ user, refetch }) => {
+const ManageUsersRow = ({ user, refetch, setLoading }) => {
   const { _id, name, email, role, image } = user || {};
 
   const handleAdmin = (email) => {
+    setLoading(true);
     updateUserRole(email, "admin").then((res) => {
       refetch();
       console.log(res);
+      setLoading(false);
     });
   };
   const handleInstructor = (email) => {
+    setLoading(true);
     updateUserRole(email, "instructor").then((res) => {
       refetch();
+      console.log(res);
+      setLoading(false);
+    });
+  };
+  const handleRemove = (email) => {
+    setLoading(true);
+    removeUser(email).then((res) => {
+      refetch();
+      setLoading(false);
       console.log(res);
     });
   };
@@ -43,15 +57,22 @@ const ManageUsersRow = ({ user, refetch }) => {
       <td className="px-6 py-4 whitespace-nowrap">
         <button
           onClick={() => handleAdmin(email)}
-          className="bg-emerald-400 px-5 py-3 hover:bg-emerald-500 transition-all rounded-md ">
+          className="bg-emerald-500 p-4 hover:bg-emerald-500 transition-all rounded-full ">
           <GrUserAdmin size={20} color="" />
         </button>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <button
           onClick={() => handleInstructor(email)}
-          className="bg-cyan-400 px-5 py-3 hover:bg-cyan-500 transition-all rounded-md ">
+          className="bg-cyan-400 p-4 hover:bg-cyan-500 transition-all rounded-full ">
           <FaChalkboardTeacher size={20} color="white" />
+        </button>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <button
+          onClick={() => handleRemove(email)}
+          className="bg-red-400 p-4 hover:bg-red-500 transition-all rounded-full ">
+          <FaTrash size={20} color="white" />
         </button>
       </td>
     </tr>

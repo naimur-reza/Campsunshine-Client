@@ -26,6 +26,14 @@ export const updateUserRole = async (email, role) => {
   return response.data;
 };
 
+// remove user from db
+export const removeUser = async (email) => {
+  const response = await axios.delete(
+    `${import.meta.env.VITE_API_URL}/users/${email}`
+  );
+  return response.data;
+};
+
 // get all Users
 export const getAllUsers = async () => {
   const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);

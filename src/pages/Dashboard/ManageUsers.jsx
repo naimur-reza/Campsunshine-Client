@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ManageUsersRow from "../../components/Dashboard/ManageUsersRow";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
@@ -7,10 +7,11 @@ import axios from "axios";
 import Spinner from "../../components/shared/Spinner/Spinner";
 
 const ManageUsers = () => {
+  const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
   const {
     data: users = [],
-    isLoading,
+
     refetch,
   } = useQuery({
     queryKey: ["users"],
@@ -20,12 +21,16 @@ const ManageUsers = () => {
       return response.data;
     },
   });
-  if (isLoading) {
-    <Spinner />;
+  if (loading) {
+    return (
+      <div className="min-h-[100vh] flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-black rounded-full border-dashed animate-spin" />
+      </div>
+    );
   }
-  console.log(users);
+  console.log(loading);
   return (
-    <table className="min-w-full bg-white">
+    <table className="min-w-full  bg-white">
       <thead className="bg-teal-400 text-white">
         <tr>
           <th
@@ -48,13 +53,23 @@ const ManageUsers = () => {
             className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
             Make Instructor
           </th>
+          <th
+            scope="col"
+            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+            Action
+          </th>
         </tr>
       </thead>
 
       <tbody className=" ">
         {users &&
           users.map((user) => (
-            <ManageUsersRow key={user._id} user={user} refetch={refetch} />
+            <ManageUsersRow
+              key={user._id}
+              user={user}
+              refetch={refetch}
+              setLoading={setLoading}
+            />
           ))}
       </tbody>
     </table>

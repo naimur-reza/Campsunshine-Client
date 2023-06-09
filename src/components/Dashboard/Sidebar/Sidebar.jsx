@@ -59,7 +59,7 @@ const Sidebar = () => {
         {/* role check from here */}
         {role === "admin" && <AdminMenu />}
         {role === "instructor" && <InstructorMenu />}
-        {role === "student" && <StudentMenu />}
+        {!role && <StudentMenu />}
         <div className="">
           <hr />
           <NavLink

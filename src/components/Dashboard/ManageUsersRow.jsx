@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { GrUserAdmin } from "react-icons/gr";
 
 const ManageUsersRow = ({ user }) => {
   const { name, email, role, image } = user || {};
@@ -23,10 +25,14 @@ const ManageUsersRow = ({ user }) => {
         <div className="text-sm text-gray-900">{role ? role : Student}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <span>Btn</span>
+        <button className="bg-emerald-400 px-5 py-3 hover:bg-emerald-500 transition-all rounded-md ">
+          <GrUserAdmin size={20} color="" />
+        </button>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <span>Btn</span>
+        <button className="bg-cyan-400 px-5 py-3 hover:bg-cyan-500 transition-all rounded-md ">
+          <FaChalkboardTeacher size={20} color="white" />
+        </button>
       </td>
     </tr>
   );

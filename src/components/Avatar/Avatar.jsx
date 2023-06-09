@@ -7,6 +7,7 @@ const Avatar = ({ image, setMenuOpen, menuOpen }) => {
     <div className="cursor-pointer">
       {image ? (
         <img
+          referrerPolicy="no-referrer"
           onClick={() => setMenuOpen(!menuOpen)}
           className="h-9 w-9 rounded-full"
           src={image}

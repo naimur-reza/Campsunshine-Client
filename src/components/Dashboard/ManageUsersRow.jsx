@@ -7,7 +7,7 @@ import { SiNano } from "react-icons/si";
 import Spinner from "../shared/Spinner/Spinner";
 import { AuthContext } from "../../providers/AuthProvider";
 
-const ManageUsersRow = ({ user, refetch, setLoading }) => {
+const ManageUsersRow = ({ user, refetch, setLoading, index }) => {
   const { _id, name, email, role, image } = user || {};
 
   const handleAdmin = (email) => {
@@ -37,6 +37,7 @@ const ManageUsersRow = ({ user, refetch, setLoading }) => {
 
   return (
     <tr>
+      <td>{index + 1}.</td>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="flex-shrink-0 w-10 h-10">
@@ -59,23 +60,23 @@ const ManageUsersRow = ({ user, refetch, setLoading }) => {
         <button
           disabled={role === "admin"}
           onClick={() => handleAdmin(email)}
-          className="bg-emerald-500 p-4 hover:bg-emerald-500 transition-all rounded-full ">
-          <GrUserAdmin size={20} color="" />
+          className="bg-emerald-500 p-3 hover:bg-emerald-500 transition-all rounded-full ">
+          <GrUserAdmin size={18} color="" />
         </button>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <button
           disabled={role === "instructor"}
           onClick={() => handleInstructor(email)}
-          className="bg-cyan-400 p-4 hover:bg-cyan-500 transition-all rounded-full ">
-          <FaChalkboardTeacher size={20} color="white" />
+          className="bg-cyan-400 p-3 hover:bg-cyan-500 transition-all rounded-full ">
+          <FaChalkboardTeacher size={18} color="white" />
         </button>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <button
           onClick={() => handleRemove(email)}
-          className="bg-red-400 p-4 hover:bg-red-500 transition-all rounded-full ">
-          <FaTrash size={20} color="white" />
+          className="bg-red-400 p-3 hover:bg-red-500 transition-all rounded-full ">
+          <FaTrash size={18} color="white" />
         </button>
       </td>
     </tr>

@@ -5,6 +5,7 @@ import { GrUserAdmin } from "react-icons/gr";
 import { removeUser, updateUserRole } from "../../api/auth";
 import { SiNano } from "react-icons/si";
 import Spinner from "../shared/Spinner/Spinner";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const ManageUsersRow = ({ user, refetch, setLoading }) => {
   const { _id, name, email, role, image } = user || {};
@@ -12,16 +13,16 @@ const ManageUsersRow = ({ user, refetch, setLoading }) => {
   const handleAdmin = (email) => {
     setLoading(true);
     updateUserRole(email, "admin").then((res) => {
-      refetch();
       console.log(res);
       setLoading(false);
+      refetch();
     });
   };
   const handleInstructor = (email) => {
     setLoading(true);
     updateUserRole(email, "instructor").then((res) => {
-      refetch();
       console.log(res);
+      refetch();
       setLoading(false);
     });
   };
@@ -56,6 +57,7 @@ const ManageUsersRow = ({ user, refetch, setLoading }) => {
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <button
+          disabled={role === "admin"}
           onClick={() => handleAdmin(email)}
           className="bg-emerald-500 p-4 hover:bg-emerald-500 transition-all rounded-full ">
           <GrUserAdmin size={20} color="" />
@@ -63,6 +65,7 @@ const ManageUsersRow = ({ user, refetch, setLoading }) => {
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <button
+          disabled={role === "instructor"}
           onClick={() => handleInstructor(email)}
           className="bg-cyan-400 p-4 hover:bg-cyan-500 transition-all rounded-full ">
           <FaChalkboardTeacher size={20} color="white" />

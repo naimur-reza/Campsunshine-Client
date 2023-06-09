@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import AddClassForm from "../../Forms/AddClassForm";
+
 import { useForm } from "react-hook-form";
 import { addClass } from "../../api/classes";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { uploadImage } from "../../api/utils";
 import { AuthContext } from "../../providers/AuthProvider";
+import AddClassForm from "../../components/Forms/AddClassForm";
 
 const AddClass = () => {
   const { user } = useContext(AuthContext);

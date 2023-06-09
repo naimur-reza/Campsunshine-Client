@@ -1,35 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaCross, FaTrash } from "react-icons/fa";
 import { BsCheckLg } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { IoIosChatbubbles } from "react-icons/io";
 import { updateClassStatus } from "../../api/classes";
 import { toast } from "react-hot-toast";
-const ManageClassesRow = ({ classInfo, index, setLoading, refetch }) => {
-  const { _id, className, email, image, name, price, seats, status, teacher } =
+import FeedbackModal from "../Modal/FeedbackModal";
+const ManageClassesRow = ({ classInfo, handleApprove, handleDeny }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { _id, className, image, name, price, seats, status, teacher } =
     classInfo;
-
-  const handleApprove = (id) => {
-    setLoading(true);
-    updateClassStatus(id, { status: "approved" }).then((data) => {
-      if (data.modifiedCount > 0) {
-        refetch();
-        toast.success("Class Approved");
-        setLoading(false);
-      }
-    });
+  const modalHandler = () => {
+    setIsOpen(!isOpen);
   };
-  const handleDeny = (id) => {
-    setLoading(true);
-    updateClassStatus(id, { status: "denied" }).then((data) => {
-      if (data.modifiedCount > 0) {
-        toast.success("Class Denied");
-        refetch();
-        setLoading(false);
-      }
-    });
+  const closeModal = () => {
+    setIsOpen(false);
   };
-
   return (
     <>
       <tr>
@@ -83,11 +70,15 @@ const ManageClassesRow = ({ classInfo, index, setLoading, refetch }) => {
           </button>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
-          <button className="bg-cyan-500 p-3 hover:bg-cyan-600 transition-all rounded-full ">
+          <button
+            onClick={() => modalHandler(true)}
+            className="bg-cyan-500 p-3 hover:bg-cyan-600 transition-all rounded-full ">
             <IoIosChatbubbles size={19} color="white" />
           </button>
         </td>
       </tr>
+
+      <FeedbackModal isOpen={isOpen} closeModal={closeModal} />
     </>
   );
 };

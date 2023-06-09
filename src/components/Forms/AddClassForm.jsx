@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../providers/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
   const { user } = useContext(AuthContext);

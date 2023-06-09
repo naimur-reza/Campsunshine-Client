@@ -1,40 +1,14 @@
-import { updateCurrentUser } from "firebase/auth";
-import React, { useContext } from "react";
 import { FaChalkboardTeacher, FaTrash } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
-import { removeUser, updateUserRole } from "../../api/auth";
-import { SiNano } from "react-icons/si";
-import Spinner from "../shared/Spinner/Spinner";
-import { AuthContext } from "../../providers/AuthProvider";
 
-const ManageUsersRow = ({ user, refetch, setLoading, index }) => {
+const ManageUsersRow = ({
+  user,
+  index,
+  handleAdmin,
+  handleInstructor,
+  handleRemove,
+}) => {
   const { _id, name, email, role, image } = user || {};
-
-  const handleAdmin = (email) => {
-    setLoading(true);
-    updateUserRole(email, "admin").then((res) => {
-      console.log(res);
-      setLoading(false);
-      refetch();
-    });
-  };
-  const handleInstructor = (email) => {
-    setLoading(true);
-    updateUserRole(email, "instructor").then((res) => {
-      console.log(res);
-      refetch();
-      setLoading(false);
-    });
-  };
-  const handleRemove = (email) => {
-    setLoading(true);
-    removeUser(email).then((res) => {
-      refetch();
-      setLoading(false);
-      console.log(res);
-    });
-  };
-
   return (
     <tr>
       <td>{index + 1}.</td>

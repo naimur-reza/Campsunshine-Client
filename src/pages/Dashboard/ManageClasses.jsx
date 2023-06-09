@@ -4,23 +4,50 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import ManageClassesRow from "../../components/Dashboard/ManageClassesRow";
+import { updateClassStatus } from "../../api/classes";
+import { toast } from "react-hot-toast";
 
 const ManageClasses = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
   const {
     data: classes = [],
-
     refetch,
+    isLoading,
   } = useQuery({
     queryKey: ["classes"],
+    enabled: !loading,
 
     queryFn: async () => {
       const response = await axios(`${import.meta.env.VITE_API_URL}/classes`);
       return response.data;
     },
   });
-  if (loading) {
+
+  // handling status
+
+  const handleApprove = (id) => {
+    setLoading(true);
+    updateClassStatus(id, { status: "approved" }).then((data) => {
+      if (data.modifiedCount > 0) {
+        refetch();
+        toast.success("Class Approved");
+        setLoading(false);
+      }
+    });
+  };
+  const handleDeny = (id) => {
+    setLoading(true);
+    updateClassStatus(id, { status: "denied" }).then((data) => {
+      if (data.modifiedCount > 0) {
+        toast.success("Class Denied");
+        refetch();
+        setLoading(false);
+      }
+    });
+  };
+
+  if (isLoading || loading) {
     return (
       <div className="min-h-[100vh] flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-black rounded-full border-dashed animate-spin" />
@@ -80,9 +107,9 @@ const ManageClasses = () => {
               <ManageClassesRow
                 key={classInfo._id}
                 classInfo={classInfo}
-                refetch={refetch}
                 index={index}
-                setLoading={setLoading}
+                handleApprove={handleApprove}
+                handleDeny={handleDeny}
               />
             ))}
         </tbody>

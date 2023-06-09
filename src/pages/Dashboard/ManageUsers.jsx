@@ -2,14 +2,13 @@ import React, { useContext, useState } from "react";
 import ManageUsersRow from "../../components/Dashboard/ManageUsersRow";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import { getAllUsers } from "../../api/auth";
+import { getAllUsers, updateUserRole } from "../../api/auth";
 import axios from "axios";
 import Spinner from "../../components/shared/Spinner/Spinner";
 import { FaUsers } from "react-icons/fa";
 
 const ManageUsers = () => {
   const [loading, setLoading] = useState(false);
-  const { user } = useContext(AuthContext);
   const {
     data: users = [],
 
@@ -22,6 +21,34 @@ const ManageUsers = () => {
       return response.data;
     },
   });
+
+  // managing users
+
+  const handleAdmin = (email) => {
+    setLoading(true);
+    updateUserRole(email, "admin").then((res) => {
+      console.log(res);
+      setLoading(false);
+      refetch();
+    });
+  };
+  const handleInstructor = (email) => {
+    setLoading(true);
+    updateUserRole(email, "instructor").then((res) => {
+      console.log(res);
+      refetch();
+      setLoading(false);
+    });
+  };
+  const handleRemove = (email) => {
+    setLoading(true);
+    removeUser(email).then((res) => {
+      refetch();
+      setLoading(false);
+      console.log(res);
+    });
+  };
+
   if (loading) {
     return (
       <div className="min-h-[100vh] flex items-center justify-center">
@@ -75,8 +102,9 @@ const ManageUsers = () => {
                 key={user._id}
                 index={index}
                 user={user}
-                refetch={refetch}
-                setLoading={setLoading}
+                handleAdmin={handleAdmin}
+                handleInstructor={handleInstructor}
+                handleRemove={handleRemove}
               />
             ))}
         </tbody>

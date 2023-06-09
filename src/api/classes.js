@@ -10,7 +10,9 @@ export const addClass = async (data) => {
 // get all classes from the db
 
 export const getAllClasses = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
+  const res = await axios.get(
+    `${import.meta.env.VITE_API_URL}/classes/approved`
+  );
   return res.data;
 };
 

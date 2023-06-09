@@ -11,7 +11,7 @@ const ManageClassesRow = ({ classInfo, handleApprove, handleDeny }) => {
 
   const { _id, className, image, name, price, seats, status, teacher } =
     classInfo;
-  const modalHandler = () => {
+  const openModal = () => {
     setIsOpen(!isOpen);
   };
   const closeModal = () => {
@@ -71,7 +71,7 @@ const ManageClassesRow = ({ classInfo, handleApprove, handleDeny }) => {
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           <button
-            onClick={() => modalHandler(true)}
+            onClick={() => openModal(true)}
             className="bg-cyan-500 p-3 hover:bg-cyan-600 transition-all rounded-full ">
             <IoIosChatbubbles size={19} color="white" />
           </button>

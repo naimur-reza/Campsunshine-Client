@@ -6,6 +6,7 @@ import axios from "axios";
 import ManageClassesRow from "../../components/Dashboard/ManageClassesRow";
 import { updateClassStatus } from "../../api/classes";
 import { toast } from "react-hot-toast";
+import Spinner2 from "../../components/shared/Spinner/Spinner2";
 
 const ManageClasses = () => {
   const [loading, setLoading] = useState(false);
@@ -47,13 +48,8 @@ const ManageClasses = () => {
     });
   };
 
-  if (isLoading || loading) {
-    return (
-      <div className="min-h-[100vh] flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-black rounded-full border-dashed animate-spin" />
-      </div>
-    );
-  }
+  if (isLoading || loading) return <Spinner2 />;
+
   console.log(classes);
   return (
     <>

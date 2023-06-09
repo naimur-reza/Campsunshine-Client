@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SectionTitle from "../../components/shared/SectionTitle/SectionTitle";
-import { getClasses } from "../../api/classes";
-import { set } from "react-hook-form";
+import { AuthContext } from "../../providers/AuthProvider";
+import { getAllClasses } from "../../api/classes";
 
 const Classes = () => {
-  const [classes, setClasses] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  const { user } = useContext(AuthContext);
 
+  const classes = getAllClasses().then((data) => {
+    console.log(data);
+    // setLoading(false);
+  });
   return (
     <div className="pt-[92px]">
       <SectionTitle title="All Classes" subTitle="Find what you want!" />

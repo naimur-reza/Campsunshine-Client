@@ -2,7 +2,7 @@ import axios from "axios";
 
 // save user in db
 export const saveUser = async (user) => {
-  const response = await axios.post(`${import.meta.env.VITE_API_URL}/addUser`, {
+  const response = await axios.put(`${import.meta.env.VITE_API_URL}/addUser`, {
     name: user.displayName,
     email: user.email,
     image: user.photoURL,

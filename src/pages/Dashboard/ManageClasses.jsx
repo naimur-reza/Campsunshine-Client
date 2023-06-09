@@ -29,7 +29,7 @@ const ManageClasses = () => {
   }
   console.log(classes);
   return (
-    <table className="min-w-full  bg-white">
+    <table className="min-w-full  bg-white text-cen">
       <thead className="bg-teal-400 text-white">
         <tr>
           <th
@@ -61,6 +61,11 @@ const ManageClasses = () => {
             scope="col"
             className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
             Action
+          </th>
+          <th
+            scope="col"
+            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+            Feedback
           </th>
         </tr>
       </thead>

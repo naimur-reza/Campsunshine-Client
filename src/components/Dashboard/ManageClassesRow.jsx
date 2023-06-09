@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { FaChalkboardTeacher, FaTrash } from "react-icons/fa";
-import { GrUserAdmin } from "react-icons/gr";
-
+import { FaCross, FaTrash } from "react-icons/fa";
+import { BsCheckLg } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
+import { IoIosChatbubbles } from "react-icons/io";
 const ManageClassesRow = ({ classInfo, index }) => {
   const { className, email, image, name, price, seats, status, teacher } =
     classInfo;
@@ -10,7 +11,7 @@ const ManageClassesRow = ({ classInfo, index }) => {
       <td>
         <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
           <img src={image} className="w-36 h-20 my-1 rounded-md " alt="" />
-          <h1>{className}</h1>
+          <h1 className="text-sm">{className}</h1>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -32,10 +33,18 @@ const ManageClassesRow = ({ classInfo, index }) => {
         <div className="text-sm text-gray-900">{seats}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">${price}</td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm">{status}</td>
+      <td className="px-6 py-4 whitespace-nowrap text-xs">{status}</td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <button className="bg-red-400 p-3 hover:bg-red-500 transition-all rounded-full ">
-          <FaTrash size={18} color="white" />
+        <button className="bg-green-400 p-2 hover:bg-green-500 transition-all rounded-full ">
+          <BsCheckLg size={18} color="white" />
+        </button>
+        <button className="bg-red-500 p-2 ml-2 hover:bg-red-600 transition-all rounded-full ">
+          <RxCross1 size={18} color="white" />
+        </button>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <button className="bg-cyan-400 p-3 hover:bg-cyan-500 transition-all rounded-full ">
+          <IoIosChatbubbles size={15} color="white" />
         </button>
       </td>
     </tr>

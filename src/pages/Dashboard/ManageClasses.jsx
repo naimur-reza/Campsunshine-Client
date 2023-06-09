@@ -29,60 +29,65 @@ const ManageClasses = () => {
   }
   console.log(classes);
   return (
-    <table className="min-w-full  bg-white text-cen">
-      <thead className="bg-teal-400 text-white">
-        <tr>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Class
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Instructor
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Seats
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Price
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Status
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Action
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-            Feedback
-          </th>
-        </tr>
-      </thead>
+    <>
+      <h1 className="text-sm tracking-wider pb-2">
+        Total Classes: {classes.length}
+      </h1>
+      <table className="min-w-full  bg-white text-cen">
+        <thead className="bg-teal-400 text-white">
+          <tr>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Class
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Instructor
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Seats
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Price
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Status
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Action
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+              Feedback
+            </th>
+          </tr>
+        </thead>
 
-      <tbody className=" ">
-        {classes &&
-          classes.map((classInfo, index) => (
-            <ManageClassesRow
-              key={classInfo._id}
-              classInfo={classInfo}
-              refetch={refetch}
-              index={index}
-              setLoading={setLoading}
-            />
-          ))}
-      </tbody>
-    </table>
+        <tbody className=" ">
+          {classes &&
+            classes.map((classInfo, index) => (
+              <ManageClassesRow
+                key={classInfo._id}
+                classInfo={classInfo}
+                refetch={refetch}
+                index={index}
+                setLoading={setLoading}
+              />
+            ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 

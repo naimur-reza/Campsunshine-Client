@@ -3,6 +3,7 @@ import SectionTitle from "../../components/shared/SectionTitle/SectionTitle";
 import { AuthContext } from "../../providers/AuthProvider";
 import { getAllClasses } from "../../api/classes";
 import ClassesCard from "../../components/Home/Classes/ClassesCard";
+import Spinner2 from "../../components/shared/Spinner/Spinner2";
 
 const Classes = () => {
   const [loading, setLoading] = useState(true);
@@ -15,7 +16,7 @@ const Classes = () => {
       setLoading(false);
     });
   }, [user]);
-
+  if (loading) return <Spinner2 />;
   return (
     <div className="pt-[92px] my-container">
       <SectionTitle title="All Classes" subTitle="Find what you want!" />

@@ -13,3 +13,13 @@ export const getAllClasses = async () => {
   const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
   return res.data;
 };
+
+// update class status
+
+export const updateClassStatus = async (id, classData) => {
+  const res = await axios.patch(
+    `${import.meta.env.VITE_API_URL}/classes/status/${id}`,
+    classData
+  );
+  return res.data;
+};

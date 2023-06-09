@@ -78,6 +78,7 @@ const ManageClasses = () => {
               classInfo={classInfo}
               refetch={refetch}
               index={index}
+              setLoading={setLoading}
             />
           ))}
       </tbody>

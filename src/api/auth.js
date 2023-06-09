@@ -6,10 +6,21 @@ export const saveUser = async (user) => {
     email: user?.email,
     name: user?.displayName,
     image: user?.photoURL,
-    role: "admin",
   };
   const response = await axios.put(
     `${import.meta.env.VITE_API_URL}/users/${user?.email}}`,
+    currentUser
+  );
+  return response.data;
+};
+
+// update user role
+export const updateUserRole = async (email, role) => {
+  const currentUser = {
+    role: role,
+  };
+  const response = await axios.put(
+    `${import.meta.env.VITE_API_URL}/users/${email}`,
     currentUser
   );
   return response.data;

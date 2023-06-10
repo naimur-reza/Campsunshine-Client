@@ -11,6 +11,7 @@ import { toast } from "react-hot-toast";
 import InstructorMenu from "../MenuBar/InstructorMenu";
 import StudentMenu from "../MenuBar/StudentMenu";
 import HomeMenu from "../MenuBar/HomeMenu";
+import UserMenu from "../MenuBar/UserMenu";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(true);
@@ -57,6 +58,9 @@ const Sidebar = () => {
           <p className="mt-1">CAMPSUNSHINE</p>
         </Link>
         <hr />
+
+        <UserMenu />
+        <hr />
         {/* role check from here */}
         {role === "admin" && <AdminMenu />}
         {role === "instructor" && <InstructorMenu />}
@@ -68,7 +72,7 @@ const Sidebar = () => {
           <NavLink
             to="/dashboard/profile"
             className={({ isActive }) =>
-              `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-teal-400 hover:text-white ${
+              `flex items-center px-4 py-2 mt-3  transition-colors duration-300 transform  hover:bg-teal-400 hover:text-white ${
                 isActive ? "bg-teal-400 text-white" : "text-gray-600"
               }`
             }>
@@ -78,7 +82,7 @@ const Sidebar = () => {
           </NavLink>
           <button
             onClick={handleLogOut}
-            className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-red-500 hover:text-white transition-colors duration-300 transform">
+            className="flex w-full items-center px-4 py-2 mt-3 text-gray-600 hover:bg-red-500 hover:text-white transition-colors duration-300 transform">
             <FiLogOut className="w-5 h-5" />
 
             <span className="mx-4 font-medium">Logout</span>

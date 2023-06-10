@@ -4,10 +4,10 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { FiUsers } from "react-icons/fi";
 const AdminMenu = () => {
   return (
-    <div className="uppercase space-y-4 ">
+    <div className="uppercase space-y-2 ">
       <NavLink
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5  gap-3 transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
+          `flex items-center px-4 py-2 mt-3  gap-3 transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
             isActive ? "  bg-teal-400 text-white" : "text-gray-600"
           }`
         }
@@ -17,7 +17,7 @@ const AdminMenu = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-5 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
+          `flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
             isActive ? " bg-teal-400 text-white" : "text-gray-600"
           } `
         }

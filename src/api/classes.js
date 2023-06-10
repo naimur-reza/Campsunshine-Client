@@ -7,6 +7,14 @@ export const addClass = async (data) => {
   return res;
 };
 
+// get my classes : instructor
+export const getMyClasses = async (email) => {
+  const res = await axios.get(
+    `${import.meta.env.VITE_API_URL}/classes/${email}`
+  );
+  return res.data;
+};
+
 // get all classes from the db
 
 export const getAllClasses = async () => {

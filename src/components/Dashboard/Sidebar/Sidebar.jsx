@@ -10,6 +10,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import InstructorMenu from "../MenuBar/InstructorMenu";
 import StudentMenu from "../MenuBar/StudentMenu";
+import HomeMenu from "../MenuBar/HomeMenu";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(true);
@@ -61,6 +62,8 @@ const Sidebar = () => {
         {role === "instructor" && <InstructorMenu />}
         {!role && <StudentMenu />}
         <div className="">
+          <hr />
+          <HomeMenu />
           <hr />
           <NavLink
             to="/dashboard/profile"

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import modalbg from "../../../assets/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 const ClassesCard = ({ classInfo }) => {
-  const { user } = useContext(AuthContext);
+  const { user, role } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.pathname;
@@ -34,13 +34,15 @@ const ClassesCard = ({ classInfo }) => {
         }
       });
     }
+
+    // after click on select button
   };
 
   return (
     <div
       className={`${
-        !seats && "bg-rose-500 text-white"
-      } p-5 rounded-lg shadow-lg space-y-3`}>
+        !seats && "bg-rose-600 text-white"
+      } p-5 rounded-lg shadow-xl space-y-3`}>
       <img className="w-80 rounded h-40" src={image} alt={name} />
       <h3 className="text-lg py-2 font-semibold">{className}</h3>
 
@@ -60,10 +62,12 @@ const ClassesCard = ({ classInfo }) => {
         <p>Price: ${price}</p>
       </div>
       <button
-        disabled={!seats}
+        disabled={!seats || role}
         onClick={() => handleEnroll(_id)}
-        className={`block bg-teal-600 m-auto  mt-2 duration-200   w-full py-2 rounded-lg text-white tracking-wide`}>
-        Enroll Now
+        className={`${
+          !seats ? "bg-teal-900" : "bg-teal-500 hover:bg-teal-700"
+        } block  m-auto  mt-2 duration-200   w-full py-2 rounded-lg text-white tracking-wide`}>
+        Select
       </button>
     </div>
   );

@@ -1,7 +1,55 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import UpdateClassForm from "../Forms/UpdateClassForm";
+import { useForm } from "react-hook-form";
+import { uploadImage } from "../../api/utils";
+import { updateClass } from "../../api/classes";
+import { toast } from "react-hot-toast";
 
-const UpdateClassModal = ({ closeModal, isOpen }) => {
+const UpdateClassModal = ({ closeModal, isOpen, _id, classInfo, refetch }) => {
+  const [loading, setLoading] = useState(false);
+  const { handleSubmit, register } = useForm();
+  const [imageData, setImageData] = useState("");
+  const handleImageUpdate = (image) => {
+    console.log("runningg");
+    setLoading(true);
+    uploadImage(image)
+      .then((res) => {
+        console.log(res);
+        setImageData(res.data.display_url);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
+  console.log(imageData);
+  console.log(_id);
+  const onSubmit = (data) => {
+    console.log(data);
+    const updatedData = Object.assign(
+      {},
+      { ...data, image: imageData || data.image }
+    );
+    delete updatedData._id;
+    setLoading(true);
+    updateClass(updatedData, classInfo._id)
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          toast.success("Class Info Updated");
+          setLoading(false);
+          refetch();
+          closeModal();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -26,27 +74,18 @@ const UpdateClassModal = ({ closeModal, isOpen }) => {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900">
-                  Payment successful
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We’ve sent you
-                    an email with all of the details of your order.
-                  </p>
-                </div>
-
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={closeModal}>
-                    Got it, thanks!
-                  </button>
-                </div>
+              <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <UpdateClassForm
+                  closeModal={closeModal}
+                  classInfo={classInfo}
+                  handleSubmit={handleSubmit}
+                  onSubmit={onSubmit}
+                  register={register}
+                  handleImageUpdate={handleImageUpdate}
+                  loading={loading}
+                  _id={_id}
+                />
+                <div className="mt-4"></div>
               </Dialog.Panel>
             </Transition.Child>
           </div>

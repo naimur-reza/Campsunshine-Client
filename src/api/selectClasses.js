@@ -19,3 +19,12 @@ export const getMySelectedClasses = async (email) => {
   );
   return res;
 };
+
+// remove from selected classes
+
+export const removeSelectedClass = async (id) => {
+  const res = await axios.delete(
+    `${import.meta.env.VITE_API_URL}/classes/select/${id}`
+  );
+  return res.data;
+};

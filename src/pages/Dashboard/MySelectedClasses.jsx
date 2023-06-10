@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
-import { getMySelectedClasses, selectClass } from "../../api/selectClasses";
+import React, { useContext, useState } from "react";
+import {
+  getMySelectedClasses,
+  removeSelectedClass,
+  selectClass,
+} from "../../api/selectClasses";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../providers/AuthProvider";
 import Spinner2 from "../../components/shared/Spinner/Spinner2";
 import MySelectedClassRow from "../../components/Dashboard/MySelectedClassRow";
+import Swal from "sweetalert2";
 
 const MySelectedClasses = () => {
-  const { user, loading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const {
     data: classes = [],
     isLoading,
@@ -20,7 +26,30 @@ const MySelectedClasses = () => {
       return data;
     },
   });
-  if (isLoading) {
+
+  const handleRemove = async (id) => {
+    Swal.fire({
+      title: "Delete selected class?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setLoading(true);
+        removeSelectedClass(id).then((data) => {
+          if (data.deletedCount > 0) {
+            refetch();
+            setLoading(false);
+            Swal.fire("Deleted!", "successfully");
+          }
+        });
+      }
+    });
+  };
+  if (isLoading || loading) {
     return <Spinner2 />;
   }
   return (
@@ -68,6 +97,7 @@ const MySelectedClasses = () => {
                 key={classInfo._id}
                 classInfo={classInfo}
                 index={index}
+                handleRemove={handleRemove}
               />
             ))}
         </tbody>

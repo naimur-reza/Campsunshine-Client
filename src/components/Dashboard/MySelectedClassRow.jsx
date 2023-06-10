@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { MdPayment } from "react-icons/md";
+import CheckoutModal from "../Modal/CheckoutModal";
 
 const MySelectedClassRow = ({ classInfo, handleRemove, index }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { className, image, teacher, price, status, name } = classInfo;
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+  const { _id, className, image, teacher, price, status, name } = classInfo;
 
   return (
     <>
@@ -35,22 +38,21 @@ const MySelectedClassRow = ({ classInfo, handleRemove, index }) => {
         <td className="px-6 py-4 whitespace-nowrap">${price}</td>
         <td className="px-6 py-4 whitespace-nowrap">
           <button
-            disabled={status === "approved"}
-            // onClick={() => handleApprove(_id)}
+            onClick={() => openModal(true)}
             className="bg-yellow-500 p-3 hover:bg-yellow-600 transition-all rounded-full ">
             <MdPayment size={19} color="white" />
           </button>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           <button
-            onClick={() => openModal(true)}
+            onClick={() => handleRemove(_id)}
             className="bg-red-500 p-3 hover:bg-red-600 transition-all rounded-full ">
             <FaTrash size={19} color="white" />
           </button>
         </td>
       </tr>
 
-      {/* <FeedbackModal isOpen={isOpen} closeModal={closeModal} /> */}
+      <CheckoutModal isOpen={isOpen} closeModal={closeModal} />
     </>
   );
 };

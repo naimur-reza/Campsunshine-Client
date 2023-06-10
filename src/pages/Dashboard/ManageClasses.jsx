@@ -107,6 +107,7 @@ const ManageClasses = () => {
                 index={index}
                 handleApprove={handleApprove}
                 handleDeny={handleDeny}
+                refetch={refetch}
               />
             ))}
         </tbody>

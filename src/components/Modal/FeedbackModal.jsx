@@ -2,18 +2,27 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { updateClass } from "../../api/classes";
 import { toast } from "react-hot-toast";
-
-const FeedbackModal = ({ closeModal, isOpen, id }) => {
+import { ImSpinner3 } from "react-icons/im";
+const FeedbackModal = ({ closeModal, isOpen, id, refetch }) => {
+  const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
 
   const handleSubmit = () => {
+    setLoading(true);
     console.log(feedback);
-    updateClass({ feedback }, id).then((data) => {
-      if (data.modifiedCount > 0) {
-        closeModal();
-        toast.success("Feedback Sent");
-      }
-    });
+    updateClass({ feedback }, id)
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          closeModal();
+          refetch();
+          toast.success("Feedback Sent");
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
 
   return (
@@ -58,7 +67,11 @@ const FeedbackModal = ({ closeModal, isOpen, id }) => {
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={() => handleSubmit(id)}>
-                    Send
+                    {loading ? (
+                      <ImSpinner3 size={18} className="animate-spin" />
+                    ) : (
+                      "Send"
+                    )}
                   </button>
                 </div>
               </Dialog.Panel>

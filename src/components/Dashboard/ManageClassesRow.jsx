@@ -2,11 +2,17 @@ import { useState } from "react";
 
 import { BsCheckLg } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
-import { IoIosChatbubbles } from "react-icons/io";
-import { BsSendCheck } from "react-icons/bs";
+
+import { BiCommentCheck, BiCommentDetail } from "react-icons/bi";
 
 import FeedbackModal from "../Modal/FeedbackModal";
-const ManageClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
+const ManageClassesRow = ({
+  classInfo,
+  handleApprove,
+  handleDeny,
+  index,
+  refetch,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const {
@@ -85,15 +91,20 @@ const ManageClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
             onClick={() => openModal(true)}
             className="bg-cyan-500 p-3 hover:bg-cyan-600 transition-all rounded-full ">
             {feedback ? (
-              <BsSendCheck size={19} color="white" />
+              <BiCommentCheck size={19} color="white" />
             ) : (
-              <IoIosChatbubbles size={19} color="white" />
+              <BiCommentDetail size={19} color="white" />
             )}
           </button>
         </td>
       </tr>
 
-      <FeedbackModal id={_id} isOpen={isOpen} closeModal={closeModal} />
+      <FeedbackModal
+        refetch={refetch}
+        id={_id}
+        isOpen={isOpen}
+        closeModal={closeModal}
+      />
     </>
   );
 };

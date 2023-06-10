@@ -80,12 +80,12 @@ const MySelectedClasses = () => {
             <th
               scope="col"
               className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Action
+              Payment
             </th>
             <th
               scope="col"
               className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Feedback
+              Action
             </th>
           </tr>
         </thead>

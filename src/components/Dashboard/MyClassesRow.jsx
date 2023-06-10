@@ -7,7 +7,7 @@ import { updateClassStatus } from "../../api/classes";
 import { toast } from "react-hot-toast";
 import FeedbackModal from "../Modal/FeedbackModal";
 import UpdateClassModal from "../Modal/UpdateClassModal";
-const MyClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
+const MyClassesRow = ({ classInfo, index, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const {
@@ -84,7 +84,13 @@ const MyClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
         </td>
       </tr>
 
-      <UpdateClassModal isOpen={isOpen} closeModal={closeModal} />
+      <UpdateClassModal
+        classInfo={classInfo}
+        id={_id}
+        isOpen={isOpen}
+        closeModal={closeModal}
+        refetch={refetch}
+      />
     </>
   );
 };

@@ -19,7 +19,7 @@ const MyClasses = () => {
     },
   });
   return (
-    <div>
+    <>
       <h1>My Classes : {myClasses.length}</h1>
       <table className="min-w-full  bg-white text-cen">
         <thead className="bg-teal-400 text-white">
@@ -58,7 +58,7 @@ const MyClasses = () => {
             <th
               scope="col"
               className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Action
+              Update
             </th>
             <th
               scope="col"
@@ -71,11 +71,16 @@ const MyClasses = () => {
         <tbody className=" ">
           {myClasses &&
             myClasses.map((item, index) => (
-              <MyClassesRow key={item._id} classInfo={item} index={index} />
+              <MyClassesRow
+                key={item._id}
+                classInfo={item}
+                refetch={refetch}
+                index={index}
+              />
             ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 

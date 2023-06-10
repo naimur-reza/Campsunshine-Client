@@ -24,10 +24,8 @@ const UpdateClassModal = ({ closeModal, isOpen, _id, classInfo, refetch }) => {
         setLoading(false);
       });
   };
-  console.log(imageData);
-  console.log(_id);
+
   const onSubmit = (data) => {
-    console.log(data);
     const updatedData = Object.assign(
       {},
       { ...data, image: imageData || data.image }
@@ -36,17 +34,20 @@ const UpdateClassModal = ({ closeModal, isOpen, _id, classInfo, refetch }) => {
     setLoading(true);
     updateClass(updatedData, classInfo._id)
       .then((data) => {
-        if (data) {
-          console.log(data);
+        if (data.modifiedCount > 0) {
           toast.success("Class Info Updated");
           setLoading(false);
           refetch();
+          closeModal();
+        } else {
+          setLoading(false);
           closeModal();
         }
       })
       .catch((err) => {
         console.log(err);
         setLoading(false);
+        closeModal();
       });
   };
 

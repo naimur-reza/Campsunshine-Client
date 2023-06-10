@@ -33,3 +33,13 @@ export const updateClassStatus = async (id, classData) => {
   );
   return res.data;
 };
+
+// update class data
+export const updateClass = async (classData, id) => {
+  console.log(classData);
+  const res = await axios.patch(
+    `${import.meta.env.VITE_API_URL}/classes/${id}`,
+    classData
+  );
+  return res.data;
+};

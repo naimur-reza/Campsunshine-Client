@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
-import { FaCross, FaPen, FaTrash } from "react-icons/fa";
-import { BsCheckLg } from "react-icons/bs";
-import { RxCross1 } from "react-icons/rx";
-import { IoIosChatbubbles } from "react-icons/io";
-import { updateClassStatus } from "../../api/classes";
-import { toast } from "react-hot-toast";
-import FeedbackModal from "../Modal/FeedbackModal";
+import { FaPen } from "react-icons/fa";
+import { VscCommentUnresolved } from "react-icons/vsc";
 import UpdateClassModal from "../Modal/UpdateClassModal";
+import { MdCommentsDisabled } from "react-icons/md";
+import MyFeedbackModal from "../Modal/MyFeedbackModal";
 const MyClassesRow = ({ classInfo, index, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFeedbackOpen, setFeedbackOpen] = useState(false);
+  const closeFeedbackModal = () => {
+    setFeedbackOpen(false);
+  };
 
   const {
     _id,
@@ -20,6 +21,7 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
     status,
     teacher,
     enrolled,
+    feedback,
   } = classInfo;
   const openModal = () => {
     setIsOpen(!isOpen);
@@ -33,7 +35,7 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
         <td className="text-center">{index + 1}.</td>
         <td className="pr-2">
           <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
-            <img src={image} className="w-36 h-20 my-1 rounded-md " alt="" />
+            <img src={image} className=" my-1 rounded-md " alt="" />
             <h1 className="text-sm">{className}</h1>
           </div>
         </td>
@@ -69,7 +71,7 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
         <td className="text-center">{!enrolled ? 0 : enrolled} </td>
         <td className="text-center">
           <button
-            disabled={status === "approved"}
+            disabled={status === "denied"}
             onClick={() => openModal(true)}
             className="bg-gray-500 p-3 hover:bg-gray-600 transition-all rounded-full ">
             <FaPen size={19} color="white" />
@@ -77,9 +79,14 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
         </td>
         <td className="text-center">
           <button
-            onClick={() => openModal(true)}
-            className="bg-cyan-500 p-3 hover:bg-cyan-600 transition-all rounded-full ">
-            <IoIosChatbubbles size={19} color="white" />
+            disabled={!feedback}
+            onClick={() => setFeedbackOpen(true)}
+            className="bg-cyan-500 p-3 text-white hover:bg-cyan-600 transition-all rounded-full ">
+            {feedback ? (
+              <VscCommentUnresolved size={19} />
+            ) : (
+              <MdCommentsDisabled size={19} />
+            )}
           </button>
         </td>
       </tr>
@@ -90,6 +97,11 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
         isOpen={isOpen}
         closeModal={closeModal}
         refetch={refetch}
+      />
+      <MyFeedbackModal
+        feedback={feedback}
+        isFeedbackOpen={isFeedbackOpen}
+        closeFeedbackModal={closeFeedbackModal}
       />
     </>
   );

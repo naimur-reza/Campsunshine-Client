@@ -85,7 +85,7 @@ const ManageClassesRow = ({
             <RxCross1 size={19} color="white" />
           </button>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 relative whitespace-nowrap">
           <button
             disabled={feedback}
             onClick={() => openModal(true)}

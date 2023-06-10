@@ -46,7 +46,6 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      { path: "/dashboard/", element: <ManageClasses /> },
       { path: "/dashboard/Manage-classes", element: <ManageClasses /> },
       { path: "/dashboard/Manage-users", element: <ManageUsers /> },
       { path: "/dashboard/add-class", element: <AddClass /> },

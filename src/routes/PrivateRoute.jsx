@@ -4,12 +4,23 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Spinner from "../components/shared/Spinner/Spinner";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading, role } = useContext(AuthContext);
   console.log(user);
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
   const from = location.pathname;
+
+  useEffect(() => {
+    if (role === "admin") {
+      return navigate("/dashboard/manage-classes");
+    }
+    if (role === "instructor") {
+      return navigate("/dashboard/my-classes");
+    }
+    return navigate("/dashboard/my-selected-classes");
+  }, [user]);
+
   if (loading) {
     return <Spinner />;
   }

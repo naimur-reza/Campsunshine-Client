@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
-import modalbg from "../../../assets/logo.png";
+
 import { useLocation, useNavigate } from "react-router-dom";
-const ClassesCard = ({ classInfo }) => {
+import { selectClass } from "../../../api/selectClasses";
+import { toast } from "react-hot-toast";
+
+const ClassesCard = ({ classInfo, setLoading }) => {
   const { user, role } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.pathname;
@@ -36,6 +40,21 @@ const ClassesCard = ({ classInfo }) => {
     }
 
     // after click on select button
+    setLoading(true);
+    const selectInfo = {
+      classId: id,
+      userEmail: user.email,
+    };
+    selectClass(selectInfo)
+      .then((data) => {
+        console.log(data);
+        toast.success("Class Selected");
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
 
   return (

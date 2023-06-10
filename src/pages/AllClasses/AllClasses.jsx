@@ -25,7 +25,13 @@ const Classes = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-5">
         {classes &&
           classes.map((classInfo) => {
-            return <ClassesCard key={classInfo._id} classInfo={classInfo} />;
+            return (
+              <ClassesCard
+                key={classInfo._id}
+                classInfo={classInfo}
+                setLoading={setLoading}
+              />
+            );
           })}
       </div>
     </div>

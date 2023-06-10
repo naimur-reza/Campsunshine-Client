@@ -1,16 +1,25 @@
-import React, { useContext, useState } from "react";
-import { FaCross, FaTrash } from "react-icons/fa";
+import { useState } from "react";
+
 import { BsCheckLg } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { IoIosChatbubbles } from "react-icons/io";
-import { updateClassStatus } from "../../api/classes";
-import { toast } from "react-hot-toast";
+import { BsSendCheck } from "react-icons/bs";
+
 import FeedbackModal from "../Modal/FeedbackModal";
 const ManageClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { _id, className, image, name, price, seats, status, teacher } =
-    classInfo;
+  const {
+    _id,
+    className,
+    image,
+    name,
+    price,
+    seats,
+    status,
+    teacher,
+    feedback,
+  } = classInfo;
   const openModal = () => {
     setIsOpen(!isOpen);
   };
@@ -72,14 +81,19 @@ const ManageClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           <button
+            disabled={feedback}
             onClick={() => openModal(true)}
             className="bg-cyan-500 p-3 hover:bg-cyan-600 transition-all rounded-full ">
-            <IoIosChatbubbles size={19} color="white" />
+            {feedback ? (
+              <BsSendCheck size={19} color="white" />
+            ) : (
+              <IoIosChatbubbles size={19} color="white" />
+            )}
           </button>
         </td>
       </tr>
 
-      <FeedbackModal isOpen={isOpen} closeModal={closeModal} />
+      <FeedbackModal id={_id} isOpen={isOpen} closeModal={closeModal} />
     </>
   );
 };

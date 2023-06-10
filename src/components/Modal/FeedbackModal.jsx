@@ -1,7 +1,21 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { updateClass } from "../../api/classes";
+import { toast } from "react-hot-toast";
 
-const FeedbackModal = ({ closeModal, isOpen }) => {
+const FeedbackModal = ({ closeModal, isOpen, id }) => {
+  const [feedback, setFeedback] = useState("");
+
+  const handleSubmit = () => {
+    console.log(feedback);
+    updateClass({ feedback }, id).then((data) => {
+      if (data.modifiedCount > 0) {
+        closeModal();
+        toast.success("Feedback Sent");
+      }
+    });
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -30,21 +44,21 @@ const FeedbackModal = ({ closeModal, isOpen }) => {
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900">
-                  Payment successful
+                  Write Your Feedback
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We’ve sent you
-                    an email with all of the details of your order.
-                  </p>
+                  <textarea
+                    onChange={(e) => setFeedback(e.target.value)}
+                    placeholder="feedback..."
+                    className="w-full h-28 p-3 outline-teal-300  border-2 rounded border-gray-200"></textarea>
                 </div>
 
                 <div className="mt-4">
                   <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={closeModal}>
-                    Got it, thanks!
+                    onClick={() => handleSubmit(id)}>
+                    Send
                   </button>
                 </div>
               </Dialog.Panel>

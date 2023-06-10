@@ -12,7 +12,7 @@ import ManageUsers from "../pages/Dashboard/ManageUsers";
 import AddClass from "../pages/Dashboard/AddClass";
 import MySelectedClasses from "../pages/Dashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/MyEnrolledClasses";
-import Classes from "../pages/Classes/Classes";
+import AllClasses from "../pages/AllClasses/AllClasses";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/classes", element: <Classes /> },
+      { path: "/classes", element: <AllClasses /> },
     ],
   },
   {

@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { saveUser } from "../../../api/auth";
 
 const GoogleLogin = () => {
   const navigate = useNavigate();
   const { signInWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.pathname.state || "/";
   const handleGoogleLogin = () => {
     signInWithGoogle().then((res) => {
       console.log(res.user);
       saveUser(res.user);
-      navigate("/");
+      navigate(from, { replace: true });
     });
   };
 

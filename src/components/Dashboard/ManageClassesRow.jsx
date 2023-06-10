@@ -6,7 +6,7 @@ import { IoIosChatbubbles } from "react-icons/io";
 import { updateClassStatus } from "../../api/classes";
 import { toast } from "react-hot-toast";
 import FeedbackModal from "../Modal/FeedbackModal";
-const ManageClassesRow = ({ classInfo, handleApprove, handleDeny }) => {
+const ManageClassesRow = ({ classInfo, handleApprove, handleDeny, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { _id, className, image, name, price, seats, status, teacher } =
@@ -20,6 +20,7 @@ const ManageClassesRow = ({ classInfo, handleApprove, handleDeny }) => {
   return (
     <>
       <tr>
+        <td>{index + 1}.</td>
         <td>
           <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
             <img src={image} className="w-36 h-20 my-1 rounded-md " alt="" />

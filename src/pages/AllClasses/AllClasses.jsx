@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import SectionTitle from "../../components/shared/SectionTitle/SectionTitle";
 import { AuthContext } from "../../providers/AuthProvider";
 import { getAllClasses } from "../../api/classes";
-import ClassesCard from "../../components/Home/Classes/ClassesCard";
+import ClassesCard from "../../components/Home/AllClasses/AllClassesCard";
 import Spinner2 from "../../components/shared/Spinner/Spinner2";
 
 const Classes = () => {
@@ -21,7 +21,7 @@ const Classes = () => {
     <div className="pt-[92px] my-container">
       <SectionTitle title="All Classes" subTitle="Find what you want!" />
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-5">
         {classes &&
           classes.map((classInfo) => {
             return <ClassesCard key={classInfo._id} classInfo={classInfo} />;

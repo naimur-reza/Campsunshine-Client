@@ -9,6 +9,8 @@ const ClassesCard = ({ classInfo }) => {
   const location = useLocation();
   const from = location.pathname;
   const { _id, name, image, className, price, seats, teacher } = classInfo;
+  console.log(seats);
+  // todo: seats not working
   const handleEnroll = (id) => {
     if (!user) {
       Swal.fire({
@@ -34,7 +36,10 @@ const ClassesCard = ({ classInfo }) => {
   };
 
   return (
-    <div className="space-y-3 p-5 shadow-lg rounded-lg ">
+    <div
+      className={`${
+        seats === 0 && "bg-red-500"
+      }space-y-3 p-5 shadow-lg rounded-lg`}>
       <img className="w-80 rounded h-40" src={image} alt={name} />
       <h3 className="text-lg py-2 font-semibold">{className}</h3>
 
@@ -49,13 +54,16 @@ const ClassesCard = ({ classInfo }) => {
           />
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex mt-2 justify-between">
         <p>Available Seats: {seats}</p>
         <p>Price: ${price}</p>
       </div>
       <button
+        disabled={seats === 0}
         onClick={() => handleEnroll(_id)}
-        className="block m-auto  duration-200  bg-teal-500 w-full py-2 rounded-lg text-white tracking-wide ">
+        className={`${
+          seats === 0 ? "bg-teal-700" : "bg-teal-500"
+        }block m-auto  mt-2 duration-200   w-full py-2 rounded-lg text-white tracking-wide`}>
         Enroll Now
       </button>
     </div>

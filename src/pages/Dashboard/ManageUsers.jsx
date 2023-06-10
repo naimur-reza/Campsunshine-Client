@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import ManageUsersRow from "../../components/Dashboard/ManageUsersRow";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import { getAllUsers, updateUserRole } from "../../api/auth";
+import { getAllUsers, removeUser, updateUserRole } from "../../api/auth";
 import axios from "axios";
 import Spinner from "../../components/shared/Spinner/Spinner";
 import { FaUsers } from "react-icons/fa";

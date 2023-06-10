@@ -11,6 +11,7 @@ const ClassesCard = ({ classInfo }) => {
   const { _id, name, image, className, price, seats, teacher } = classInfo;
   console.log(seats);
   // todo: seats not working
+  const don = false;
   const handleEnroll = (id) => {
     if (!user) {
       Swal.fire({
@@ -38,8 +39,8 @@ const ClassesCard = ({ classInfo }) => {
   return (
     <div
       className={`${
-        seats === 0 && "bg-red-500"
-      }space-y-3 p-5 shadow-lg rounded-lg`}>
+        !seats && "bg-rose-500 text-white"
+      } p-5 rounded-lg shadow-lg space-y-3`}>
       <img className="w-80 rounded h-40" src={image} alt={name} />
       <h3 className="text-lg py-2 font-semibold">{className}</h3>
 
@@ -59,11 +60,9 @@ const ClassesCard = ({ classInfo }) => {
         <p>Price: ${price}</p>
       </div>
       <button
-        disabled={seats === 0}
+        disabled={!seats}
         onClick={() => handleEnroll(_id)}
-        className={`${
-          seats === 0 ? "bg-teal-700" : "bg-teal-500"
-        }block m-auto  mt-2 duration-200   w-full py-2 rounded-lg text-white tracking-wide`}>
+        className={`block bg-teal-600 m-auto  mt-2 duration-200   w-full py-2 rounded-lg text-white tracking-wide`}>
         Enroll Now
       </button>
     </div>

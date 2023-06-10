@@ -17,6 +17,7 @@ const Classes = () => {
     });
   }, [user]);
   if (loading) return <Spinner2 />;
+
   return (
     <div className="pt-[92px] my-container">
       <SectionTitle title="All Classes" subTitle="Find what you want!" />

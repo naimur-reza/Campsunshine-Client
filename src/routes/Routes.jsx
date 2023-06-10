@@ -13,6 +13,7 @@ import AddClass from "../pages/Dashboard/AddClass";
 import MySelectedClasses from "../pages/Dashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/MyEnrolledClasses";
 import AllClasses from "../pages/AllClasses/AllClasses";
+import Instructors from "../pages/Instructors/Instructors";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/classes", element: <AllClasses /> },
+      { path: "/instructors", element: <Instructors /> },
     ],
   },
   {

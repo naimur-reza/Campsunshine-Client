@@ -2,6 +2,7 @@ import axios from "axios";
 
 // save user in db
 export const saveUser = async (user) => {
+  console.log(user);
   const currentUser = {
     email: user?.email,
     name: user?.displayName,

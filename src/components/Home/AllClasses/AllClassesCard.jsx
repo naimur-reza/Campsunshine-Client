@@ -43,6 +43,11 @@ const ClassesCard = ({ classInfo, setLoading }) => {
     setLoading(true);
     const selectInfo = {
       classId: id,
+      name: name,
+      className: className,
+      price: price,
+      image: image,
+      teacher: teacher,
       userEmail: user.email,
     };
     selectClass(selectInfo)

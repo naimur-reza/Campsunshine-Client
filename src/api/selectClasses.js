@@ -2,8 +2,7 @@ import axios from "axios";
 
 export const selectClass = async (data) => {
   const info = {
-    classId: data.classId,
-    studentEmail: data.userEmail,
+    ...data,
     date: new Date(),
   };
   const res = await axios.post(

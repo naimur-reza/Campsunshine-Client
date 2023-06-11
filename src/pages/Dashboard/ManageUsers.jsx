@@ -6,6 +6,7 @@ import { getAllUsers, removeUser, updateUserRole } from "../../api/auth";
 import axios from "axios";
 import Spinner from "../../components/shared/Spinner/Spinner";
 import { FaUsers } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
   const [loading, setLoading] = useState(false);
@@ -37,11 +38,24 @@ const ManageUsers = () => {
     });
   };
   const handleRemove = (email) => {
-    setLoading(true);
-    removeUser(email).then((res) => {
-      refetch();
-      setLoading(false);
-      console.log(res);
+    Swal.fire({
+      title: "Remove This User?",
+      text: "User will be kicked out from server!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Remove!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setLoading(true);
+        removeUser(email).then((res) => {
+          refetch();
+          setLoading(false);
+          console.log(res);
+        });
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
     });
   };
 

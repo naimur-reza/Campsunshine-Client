@@ -1,35 +1,40 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Navigation, Pagination } from "swiper";
 import img1 from "../../../assets/home/1.jpg";
 import img2 from "../../../assets/home/2.jpg";
+import "./Slider.css";
 const BannerSlider = () => {
   const images = [img1, img2];
 
   return (
-    <Carousel
-      autoPlay
-      infiniteLoop
-      showStatus={false}
-      showIndicators={true}
-      showThumbs={true}
-      interval={3000}
-      transitionTime={1000}
-      stopOnHover={false}
-      dynamicHeight={false}
-      swipeable={true}
-      emulateTouch={true}
-      useKeyboardArrows={true}
-      centerMode={false}
-      centerSlidePercentage={80}
-      swipeScrollTolerance={5}
-      axis={"horizontal"}
-      thumbWidth={100}>
-      {images.map((image, index) => (
-        <div key={index} className="select-none cursor-grab md:h-screen">
-          <img src={image} />
-        </div>
-      ))}
-    </Carousel>
+    <>
+      <Swiper
+        spaceBetween={30}
+        effect={"fade"}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[EffectFade, Navigation, Pagination]}
+        className="mySwiper">
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={image}
+              alt="banner"
+              className="h-[100vh] object-cover w-full"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 };
 

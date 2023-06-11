@@ -6,15 +6,17 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
   const { user } = useContext(AuthContext);
 
   return (
-    <section className="max-w-5xl p-6 mx-auto bg-white rounded-md shadow-md  ">
+    <section className="max-w-5xl dark:bg-black/40 p-6 mx-auto bg-white rounded-md shadow-md  ">
       <h2 className="text-lg bg-teal-400 px-5 py-2 rounded-md text-white font-semibold  capitalize ">
         Add a Class
       </h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 mt-4  sm:grid-cols-2">
           <div>
-            <label className="text-gray-700 " htmlFor="className">
+            <label
+              className="text-gray-700   dark:text-gray-300"
+              htmlFor="className">
               Class Name
             </label>
             <input
@@ -22,12 +24,14 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
               {...register("className", { required: true })}
               type="text"
               placeholder="class name"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md   dark:bg-transparent/20 dark:text-gray-100 dark:border-0    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
 
           <div>
-            <label className="text-gray-700 " htmlFor="image">
+            <label
+              className="text-gray-700  dark:text-gray-300 "
+              htmlFor="image">
               Class Image
             </label>
             <input
@@ -35,12 +39,14 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
               {...register("image", { required: true })}
               placeholder="image"
               type="file"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    dark:bg-transparent/20 dark:text-gray-100 dark:border-0   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
 
           <div>
-            <label className="text-gray-700 " htmlFor="name">
+            <label
+              className="text-gray-700  dark:text-gray-300 "
+              htmlFor="name">
               Your Name
             </label>
             <input
@@ -50,12 +56,14 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
               //   disabled
               placeholder="your name"
               type="text"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md   dark:bg-transparent/20 dark:text-gray-100 dark:border-0    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
 
           <div>
-            <label className="text-gray-700 " htmlFor="email">
+            <label
+              className="text-gray-700   dark:text-gray-300"
+              htmlFor="email">
               Your Email
             </label>
             <input
@@ -65,11 +73,13 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
               {...register("email", { required: true })}
               value={user?.email}
               //   disabled
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    dark:bg-transparent/20 dark:text-gray-100 dark:border-0   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
           <div>
-            <label className="text-gray-700 " htmlFor="seats">
+            <label
+              className="text-gray-700   dark:text-gray-300"
+              htmlFor="seats">
               Available Seats
             </label>
             <input
@@ -77,11 +87,13 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
               type="number"
               {...register("seats", { required: true, valueAsNumber: true })}
               placeholder="seats"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md    dark:bg-transparent/20 dark:text-gray-100 dark:border-0   focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
           <div>
-            <label className="text-gray-700 " htmlFor="price">
+            <label
+              className="text-gray-700   dark:text-gray-300"
+              htmlFor="price">
               Price
             </label>
             <input
@@ -89,7 +101,7 @@ const AddClassForm = ({ handleSubmit, onSubmit, register, loading }) => {
               placeholder="Price"
               {...register("price", { required: true, valueAsNumber: true })}
               type="number"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md       focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
+              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md   dark:bg-transparent/20 dark:text-gray-100 dark:border-0    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40   focus:outline-none focus:ring"
             />
           </div>
         </div>

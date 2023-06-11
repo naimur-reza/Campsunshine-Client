@@ -9,11 +9,7 @@ import { FaUsers } from "react-icons/fa";
 
 const ManageUsers = () => {
   const [loading, setLoading] = useState(false);
-  const {
-    data: users = [],
-
-    refetch,
-  } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
 
     queryFn: async () => {

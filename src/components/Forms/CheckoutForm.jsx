@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { ImSpinner3 } from "react-icons/im";
 import Spinner3 from "../shared/Spinner/Spinner3";
 import { savePaymentInfo } from "../../api/utils";
+import { removeSelectedClass } from "../../api/selectClasses";
 const CheckoutForm = ({ closeModal, classInfo }) => {
   const [cardError, setCardError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -75,6 +76,7 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
           time: new Date().toLocaleString(),
         };
         savePaymentInfo(paymentInfo).then((data) => {
+          removeSelectedClass(classInfo.id);
           closeModal();
           console.log(data);
         });

@@ -12,6 +12,7 @@ const classNameesCard = ({ info, loading }) => {
     date,
   } = info || {};
   console.log(info);
+
   return (
     <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
       <img

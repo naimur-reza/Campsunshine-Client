@@ -38,6 +38,7 @@ const AddClass = () => {
             image: user?.photoURL,
           },
           status: "pending",
+          time: new Date(),
         };
         addClass(classesData)
           .then((res) => {

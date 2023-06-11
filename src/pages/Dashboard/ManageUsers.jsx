@@ -59,10 +59,12 @@ const ManageUsers = () => {
         <FaUsers size={20} />
         Total Users: {users.length}
       </h1>
-      <table className="min-w-full  bg-white">
+      <table className="min-w-full  bg-white dark:bg-black/30">
         <thead className="bg-teal-400 text-white">
           <tr>
-            <th scope="col">#</th>
+            <th scope="col " className="px-2">
+              #
+            </th>
             <th
               scope="col"
               className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">

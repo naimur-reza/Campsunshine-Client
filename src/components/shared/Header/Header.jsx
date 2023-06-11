@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import MenuItems from "./MenuItems";
 import logo from "../../../assets/logo.png";
+import DarkMode from "../../DarkMode/DarkMode";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ function Header() {
   };
 
   return (
-    <nav className="z-10 w-full  fixed   ">
+    <nav className="z-10 w-full dark:bg-black bg-black/20 dark:text-white/90  fixed   ">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -69,11 +70,11 @@ function Header() {
         {/* Home, Instructors, Classes, Dashboard */}
         {/* Mobile Menu */}
         <div
-          className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
+          className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
             isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
           }`}
           aria-hidden={isOpen ? "false" : "true"}>
-          <div className="flex flex-col md:flex-row md:mx-6">
+          <div className="flex flex-col space-y-3 lg:space-y-0 md:flex-row md:mx-6">
             <NavLink
               to={"/"}
               className={({ isActive }) =>
@@ -116,6 +117,7 @@ function Header() {
             image={user?.photoURL}
           />
           {menuOpen && <MenuItems />}
+          <DarkMode />
         </div>
       </div>
     </nav>

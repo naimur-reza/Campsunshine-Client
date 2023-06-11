@@ -1,6 +1,6 @@
 import React from "react";
 
-const classNameesCard = ({ info }) => {
+const classNameesCard = ({ info, loading }) => {
   const {
     title,
     className_image,

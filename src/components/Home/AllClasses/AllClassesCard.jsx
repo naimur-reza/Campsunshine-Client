@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
-
+import { ImSpinner3 } from "react-icons/im";
 import { useLocation, useNavigate } from "react-router-dom";
 import { selectClass } from "../../../api/selectClasses";
 import { toast } from "react-hot-toast";
 
-const ClassesCard = ({ classInfo, setLoading }) => {
+const ClassesCard = ({ classInfo }) => {
   const { user, role } = useContext(AuthContext);
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.pathname;
@@ -91,7 +91,11 @@ const ClassesCard = ({ classInfo, setLoading }) => {
         className={`${
           !seats ? "bg-teal-900" : "bg-teal-500 hover:bg-teal-700"
         } block  m-auto  mt-2 duration-200   w-full py-2 rounded-lg text-white tracking-wide`}>
-        Select
+        {loading ? (
+          <ImSpinner3 size={23} className={"animate-spin  m-auto"} />
+        ) : (
+          "Select"
+        )}
       </button>
     </div>
   );

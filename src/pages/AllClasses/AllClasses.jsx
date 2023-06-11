@@ -51,7 +51,11 @@ const Classes = () => {
             classes.map((classInfo) => {
               return (
                 <motion.li key={classInfo._id} variants={item}>
-                  <ClassesCard classInfo={classInfo} setLoading={setLoading} />
+                  <ClassesCard
+                    loading={loading}
+                    classInfo={classInfo}
+                    setLoading={setLoading}
+                  />
                 </motion.li>
               );
             })}

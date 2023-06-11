@@ -22,7 +22,7 @@ function Header() {
             <Link to={"/"}>
               <img className="w-12 h-12" src={logo} alt="" />
             </Link>
-            <p className=" text-xl font-bold bg-gradient-to-r from-teal-400 via-emerald-500  to-pink-500 text-transparent bg-clip-text  uppercase ">
+            <p className=" text-xl font-semibold bg-gradient-to-r from-teal-500 via-red-500  to-yellow-500 text-transparent bg-clip-text  uppercase ">
               CampSunshine
             </p>
           </div>

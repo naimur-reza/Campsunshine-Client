@@ -52,7 +52,11 @@ const MySelectedClassRow = ({ classInfo, handleRemove, index }) => {
         </td>
       </tr>
 
-      <CheckoutModal isOpen={isOpen} closeModal={closeModal} />
+      <CheckoutModal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        classInfo={classInfo}
+      />
     </>
   );
 };

@@ -7,19 +7,19 @@ const HomeMenu = () => {
   return (
     <div className="uppercase space-y-3 pb-4">
       <Link
-        className={`flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white `}
+        className={`flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  text-gray-700 hover:bg-teal-400   hover:text-white `}
         to={"/"}>
         <FaHome size={20} />
         Home
       </Link>
       <Link
-        className={`flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white `}
+        className={`flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  text-gray-700 hover:bg-teal-400   hover:text-white `}
         to={"/instructors"}>
         <GiGraduateCap size={20} />
         Instructors
       </Link>
       <Link
-        className={`flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white `}
+        className={`flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  text-gray-700 hover:bg-teal-400   hover:text-white `}
         to={"/classes"}>
         <FaChalkboardTeacher size={20} />
         Classes

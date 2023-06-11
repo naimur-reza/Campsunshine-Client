@@ -9,6 +9,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Spinner2 from "../../components/shared/Spinner/Spinner2";
 import MySelectedClassRow from "../../components/Dashboard/MySelectedClassRow";
 import Swal from "sweetalert2";
+import EmptyState from "../../components/Dashboard/EmptyState";
 
 const MySelectedClasses = () => {
   const { user } = useContext(AuthContext);
@@ -54,54 +55,64 @@ const MySelectedClasses = () => {
   }
   return (
     <>
-      <h1>Class Selected: {classes.length}</h1>
+      {classes && Array.isArray(classes) && classes.length > 0 ? (
+        <>
+          <h1>Class Selected: {classes.length}</h1>
 
-      <table className="min-w-full  bg-white text-cen">
-        <thead className="bg-teal-400 text-white">
-          <tr>
-            <th scope="col" className="px-2">
-              #
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Class
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Instructor
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Price
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Payment
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-              Action
-            </th>
-          </tr>
-        </thead>
+          <table className="min-w-full  bg-white text-cen">
+            <thead className="bg-teal-400 text-white">
+              <tr>
+                <th scope="col" className="px-2">
+                  #
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+                  Class
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+                  Instructor
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+                  Price
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+                  Payment
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+                  Action
+                </th>
+              </tr>
+            </thead>
 
-        <tbody className=" ">
-          {classes &&
-            classes.map((classInfo, index) => (
-              <MySelectedClassRow
-                key={classInfo._id}
-                classInfo={classInfo}
-                index={index}
-                handleRemove={handleRemove}
-              />
-            ))}
-        </tbody>
-      </table>
+            <tbody className=" ">
+              {classes &&
+                classes.map((classInfo, index) => (
+                  <MySelectedClassRow
+                    key={classInfo._id}
+                    classInfo={classInfo}
+                    index={index}
+                    handleRemove={handleRemove}
+                  />
+                ))}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <EmptyState
+          title={"You have'nt selected any classes !"}
+          linkText={"Select Classes"}
+          route={"/classes"}
+        />
+      )}
     </>
   );
 };

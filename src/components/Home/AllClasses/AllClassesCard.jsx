@@ -5,6 +5,7 @@ import { ImSpinner3 } from "react-icons/im";
 import { useLocation, useNavigate } from "react-router-dom";
 import { selectClass } from "../../../api/selectClasses";
 import { toast } from "react-hot-toast";
+import moment from "moment/moment";
 
 const ClassesCard = ({ classInfo }) => {
   const { user, role } = useContext(AuthContext);
@@ -12,8 +13,10 @@ const ClassesCard = ({ classInfo }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.pathname;
-  const { _id, name, image, className, price, seats, teacher } = classInfo;
-  console.log(seats);
+  const { _id, name, image, className, price, seats, teacher, time } =
+    classInfo;
+  const formattedTime = moment(time).fromNow();
+
   // todo: seats not working
   const don = false;
   const handleEnroll = (id) => {
@@ -81,6 +84,7 @@ const ClassesCard = ({ classInfo }) => {
           />
         </div>
       </div>
+      <p className="text-sm">Posted : {formattedTime}</p>
       <div className="flex mt-2 justify-between">
         <p>Available Seats: {seats}</p>
         <p>Price: ${price}</p>

@@ -38,30 +38,31 @@ const Classes = () => {
     },
   };
   return (
-    <motion.ul
-      className="container"
-      variants={container}
-      initial="hidden"
-      animate="visible">
+    <>
       <div className="pt-[92px] my-container">
         <SectionTitle title="All Classes" subTitle="Find what you want!" />
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-5">
-          {classes &&
-            classes.map((classInfo) => {
-              return (
-                <motion.li key={classInfo._id} variants={item}>
-                  <ClassesCard
-                    loading={loading}
-                    classInfo={classInfo}
-                    setLoading={setLoading}
-                  />
-                </motion.li>
-              );
-            })}
-        </div>
+        <motion.ul
+          className="container"
+          variants={container}
+          initial="hidden"
+          animate="visible">
+          <div className="grid grid-cols-1 mt-7 lg:grid-cols-3 place-items-center gap-5">
+            {classes &&
+              classes.map((classInfo) => {
+                return (
+                  <motion.li key={classInfo._id} variants={item}>
+                    <ClassesCard
+                      loading={loading}
+                      classInfo={classInfo}
+                      setLoading={setLoading}
+                    />
+                  </motion.li>
+                );
+              })}
+          </div>
+        </motion.ul>
       </div>
-    </motion.ul>
+    </>
   );
 };
 

@@ -76,7 +76,7 @@ const Sidebar = () => {
                 isActive ? "bg-teal-400 text-white" : "text-gray-600"
               }`
             }>
-            <GrSettingsOption className="w-5 h-5" />
+            <GrSettingsOption className="w-5 h-5 " />
 
             <span className="mx-4 font-medium">Profile</span>
           </NavLink>

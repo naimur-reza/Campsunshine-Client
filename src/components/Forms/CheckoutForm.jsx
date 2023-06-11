@@ -1,10 +1,15 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React from "react";
+import { useContext, useEffect, useState } from "react";
 import "./CheckoutStyle.css";
+import { AuthContext } from "../../providers/AuthProvider";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 const CheckoutForm = ({ closeModal, classInfo }) => {
-  const [cardError, setCardError] = React.useState(null);
+  const [cardError, setCardError] = useState(null);
+  const [clientSecret, setClientSecret] = useState(null);
   const stripe = useStripe();
   const elements = useElements();
+  const { user } = useContext(AuthContext);
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -37,7 +42,59 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
     } else {
       console.log("[PaymentMethod]", paymentMethod);
     }
+
+    // confirm payment
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            email: user?.email || "unknown",
+            name: user?.displayName || "anonymous",
+          },
+        },
+      });
+
+    if (confirmError) {
+      console.log("[error]", confirmError);
+      setCardError(confirmError.message);
+    } else {
+      console.log("[paymentIntent]", paymentIntent);
+      if (paymentIntent.status === "succeeded") {
+        const paymentInfo = {
+          ...classInfo,
+          paymentIntentId: paymentIntent.id,
+        };
+        closeModal();
+        toast.success(
+          <p className="text-sm">
+            Payment Successful. Id:
+            <span className="bg-teal-500 text-xs mx-3 text-white p-1 rounded-full">
+              {paymentIntent.id}
+            </span>
+            🤑
+          </p>
+        );
+      }
+    }
   };
+  useEffect(() => {
+    // todo : useAxios secure
+    if (classInfo.price) {
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/create-payment-intent`, {
+          price: classInfo.price,
+        })
+
+        .then((res) => {
+          console.log(res.data.clientSecret);
+          setClientSecret(res.data.clientSecret);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [classInfo]);
   return (
     <>
       <form onSubmit={handleSubmit}>

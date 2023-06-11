@@ -56,10 +56,10 @@ const ManageClasses = () => {
       <h1 className="text-sm tracking-wider pb-2">
         Total Classes: {classes.length}
       </h1>
-      <table className="min-w-full  bg-white text-cen">
+      <table className="min-w-full  bg-white dark:bg-black/30 text-cen">
         <thead className="bg-teal-400 text-white">
           <tr>
-            <th>#</th>
+            <th className="px-3">#</th>
             <th
               scope="col"
               className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">

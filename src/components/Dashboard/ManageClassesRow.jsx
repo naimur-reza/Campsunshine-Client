@@ -35,30 +35,40 @@ const ManageClassesRow = ({
   return (
     <>
       <tr>
-        <td>{index + 1}.</td>
+        <td className="px-2">{index + 1}.</td>
         <td>
-          <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
-            <img src={image} className=" h-32 w-36  my-1 rounded-md " alt="" />
-            <h1 className="text-sm w-36">{className}</h1>
+          <div className="bg-gray-100 dark:bg-transparent w-fit p-2 rounded-lg my-1">
+            <img
+              src={image}
+              className=" h-32 w-36  my-1 object-cover rounded-md "
+              alt=""
+            />
+            <h1 className="text-sm  w-36">{className}</h1>
           </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
           <div className="flex items-center">
             <div className="flex-shrink-0 w-10 h-10">
               <img
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 object-cover rounded-full"
                 src={teacher?.image}
                 alt="User Avatar"
               />
             </div>
             <div className="ml-4">
-              <div className="text-sm font-medium text-gray-900">{name}</div>
-              <div className="text-sm ">{teacher?.email}</div>
+              <div className="text-sm font-medium text-gray-900 dark:text-gray-200">
+                {name}
+              </div>
+              <div className="text-sm   dark:text-gray-200">
+                {teacher?.email}
+              </div>
             </div>
           </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
-          <div className="text-sm text-gray-900">{seats}</div>
+          <div className="text-sm text-gray-900 dark:text-gray-100">
+            {seats}
+          </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">${price}</td>
         <td>
@@ -67,7 +77,7 @@ const ManageClassesRow = ({
               (status === "approved" && "bg-green-500") ||
               (status === "denied" && "bg-red-500") ||
               "bg-black/50"
-            } px-2 py-1 text-white rounded-full text-sm `}>
+            } px-1 text-white rounded-full text-sm `}>
             {status ? status : "pending"}
           </span>
         </td>

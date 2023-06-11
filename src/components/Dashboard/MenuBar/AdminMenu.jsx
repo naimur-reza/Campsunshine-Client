@@ -7,8 +7,8 @@ const AdminMenu = () => {
     <div className="uppercase space-y-2 ">
       <NavLink
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-3  gap-3 transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
-            isActive ? "  bg-teal-400 text-white" : "text-gray-600"
+          `flex dark:text-gray-200 items-center px-4 py-2 mt-3  gap-3 transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
+            isActive ? "  bg-teal-400  text-white" : "text-gray-600"
           }`
         }
         to={"/dashboard/manage-classes"}>
@@ -17,8 +17,8 @@ const AdminMenu = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          `flex items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
-            isActive ? " bg-teal-400 text-white" : "text-gray-600"
+          `flex dark:text-gray-200 items-center px-4 py-2 mt-3 gap-3  transition-colors duration-200 transform  hover:bg-teal-400   hover:text-white ${
+            isActive ? " bg-teal-400   text-white" : "text-gray-600"
           } `
         }
         to={"/dashboard/manage-users"}>

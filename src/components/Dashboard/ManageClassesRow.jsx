@@ -35,7 +35,7 @@ const ManageClassesRow = ({
   return (
     <>
       <tr>
-        <td className="px-2">{index + 1}.</td>
+        <td className="px-3">{index + 1}.</td>
         <td>
           <div className="bg-gray-100 dark:bg-transparent w-fit p-2 rounded-lg my-1">
             <img

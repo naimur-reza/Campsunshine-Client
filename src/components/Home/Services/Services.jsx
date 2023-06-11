@@ -34,9 +34,7 @@ const Services = () => {
     <div className="bg-gray-100 dark:bg-transparent py-10 mb-10">
       <SectionTitle
         title={"Our Services"}
-        subTitle={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, maiores."
-        }
+        subTitle={"Our services are designed to help you achieve your goals"}
       />
       <div className="my-container mt-8 px-4 lg:px-0 grid grid-cols-2 lg:grid-cols-4 gap-5 py-10">
         {data.map((item, index) => (

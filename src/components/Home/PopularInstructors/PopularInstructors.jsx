@@ -15,59 +15,7 @@ import "./style.css";
 import { FreeMode, Pagination } from "swiper";
 import { getPopularClasses } from "../../../api/classes";
 const PopularInstructors = () => {
-  // todo: add popular instructors data from api
   const [teachers, setTeachers] = useState(null);
-
-  // const teachers = [
-  //   {
-  //     _id: 1,
-  //     name: "John Doe",
-  //     teaching: "Bangla",
-  //     students: 100,
-  //     email: "jhon@gmail.com",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
-  //   },
-  //   {
-  //     _id: 2,
-  //     name: "John Doe",
-  //     teaching: "English",
-  //     students: 100,
-  //     email: "jhon@gmail.com",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
-  //   },
-  //   {
-  //     _id: 3,
-  //     name: "John Doe",
-  //     teaching: "Math",
-  //     students: 100,
-  //     email: "jhon@gmail.com",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
-  //   },
-  //   {
-  //     _id: 4,
-  //     name: "John Doe",
-  //     teaching: "Biology",
-  //     students: 100,
-  //     email: "jhon@gmail.com",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
-  //   },
-  //   {
-  //     _id: 5,
-  //     name: "John Doe",
-  //     teaching: "Bangla",
-  //     students: 100,
-  //     email: "jhon@gmail.com",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
-  //   },
-  //   {
-  //     _id: 6,
-  //     name: "John Doe",
-  //     teaching: "Physics",
-  //     students: 100,
-  //     email: "jhon@gmail.com",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/team/1.jpg",
-  //   },
-  // ];
 
   useEffect(() => {
     getPopularClasses().then((res) => {

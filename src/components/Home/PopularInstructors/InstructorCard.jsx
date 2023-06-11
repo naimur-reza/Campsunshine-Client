@@ -6,7 +6,11 @@ const InstructorCard = ({ info }) => {
   return (
     <>
       <div className=" bg-black/20  overflow-hidden backdrop-blur-sm rounded  relative p-4 space-y-2 text-center ">
-        <img src={teacher.image} className="h-64 object-cover w-full" alt="" />
+        <img
+          src={teacher.image}
+          className="h-64 object-cover w-full rounded-s"
+          alt=""
+        />
         <h1 className="text-lg font-semibold text-yellow-400">{name}</h1>
         <h2 className="text-sm text-rose-200">{className}</h2>
         <p className="text-sm text-gray-100">Students: {enrolled} </p>

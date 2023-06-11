@@ -76,7 +76,7 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
           time: new Date().toLocaleString(),
         };
         savePaymentInfo(paymentInfo).then((data) => {
-          removeSelectedClass(classInfo.id);
+          removeSelectedClass(classInfo._id);
           closeModal();
           console.log(data);
         });

@@ -73,19 +73,21 @@ const ClassesCard = ({ classInfo }) => {
       <img className="w-80 rounded h-40" src={image} alt={name} />
       <h3 className="text-lg py-2 font-semibold">{className}</h3>
 
-      <div className="flex items-center ">
+      <div className="flex items-center underline underline-offset-2 text-gray-700 ">
         Instructor:
         <div className="flex ms-2 w-full items-center justify-between">
           <p className="text-base">{name}</p>
           <img
-            className="w-12 h-12  rounded-full"
+            className="w-12 h-12 object-cover rounded-full"
             src={teacher.image}
             alt="teacher"
           />
         </div>
       </div>
-      <p className="text-sm">Posted : {formattedTime}</p>
-      <div className="flex mt-2 justify-between">
+      <p className="text-sm bg-sky-100 w-fit text-black/80 px-2 rounded-full">
+        {formattedTime}
+      </p>
+      <div className="flex mt-2 justify-between text-gray-700">
         <p>Available Seats: {seats}</p>
         <p>Price: ${price}</p>
       </div>

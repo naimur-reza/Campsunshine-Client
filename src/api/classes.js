@@ -43,3 +43,11 @@ export const updateClass = async (classData, id) => {
   );
   return res.data;
 };
+
+// get popular classes
+export const getPopularClasses = async () => {
+  const res = await axios.get(
+    `${import.meta.env.VITE_API_URL}/classes/popular`
+  );
+  return res.data;
+};

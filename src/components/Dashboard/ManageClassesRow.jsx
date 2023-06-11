@@ -38,8 +38,8 @@ const ManageClassesRow = ({
         <td>{index + 1}.</td>
         <td>
           <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
-            <img src={image} className="w-36 h-20 my-1 rounded-md " alt="" />
-            <h1 className="text-sm">{className}</h1>
+            <img src={image} className=" h-32 w-36  my-1 rounded-md " alt="" />
+            <h1 className="text-sm w-36">{className}</h1>
           </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">

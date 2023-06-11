@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,61 +13,66 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 import ClassesCard from "./ClassesCard";
 import SectionTitle from "../../shared/SectionTitle/SectionTitle";
+import { getPopularClasses } from "../../../api/classes";
 
 export default function PopularClasses() {
-  const classes = [
-    {
-      title: "Basic English Speaking",
-      class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      price: 100,
-      enrolled: 100,
-      instructor: "Abdul Halim",
-      image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-      date: new Date(),
-    },
-    {
-      title: "Basic English Speaking",
-      class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      price: 100,
-      enrolled: 100,
-      instructor: "Abdul Halim",
-      image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-      date: new Date(),
-    },
-    {
-      title: "Basic English Speaking",
-      class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      price: 100,
-      enrolled: 100,
-      instructor: "Abdul Halim",
-      image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-      date: new Date(),
-    },
-    {
-      title: "Basic English Speaking",
-      class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      price: 100,
-      enrolled: 100,
-      instructor: "Abdul Halim",
-      image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-      date: new Date(),
-    },
-    {
-      title: "Basic English Speaking",
-      class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-      price: 100,
-      enrolled: 100,
-      instructor: "Abdul Halim",
-      image: "https:/P/themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-      date: new Date(),
-    },
-  ];
+  const [classes, setClasses] = useState([]);
+  // const classes = [
+  //   {
+  //     title: "Basic English Speaking",
+  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
+  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+  //     price: 100,
+  //     enrolled: 100,
+  //     instructor: "Abdul Halim",
+  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
+  //     date: new Date(),
+  //   },
+  //   {
+  //     title: "Basic English Speaking",
+  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
+  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+  //     price: 100,
+  //     enrolled: 100,
+  //     instructor: "Abdul Halim",
+  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
+  //     date: new Date(),
+  //   },
+  //   {
+  //     title: "Basic English Speaking",
+  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
+  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+  //     price: 100,
+  //     enrolled: 100,
+  //     instructor: "Abdul Halim",
+  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
+  //     date: new Date(),
+  //   },
+  //   {
+  //     title: "Basic English Speaking",
+  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
+  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+  //     price: 100,
+  //     enrolled: 100,
+  //     instructor: "Abdul Halim",
+  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
+  //     date: new Date(),
+  //   },
+  //   {
+  //     title: "Basic English Speaking",
+  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
+  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+  //     price: 100,
+  //     enrolled: 100,
+  //     instructor: "Abdul Halim",
+  //     image: "https:/P/themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
+  //     date: new Date(),
+  //   },
+  // ];
 
+  useEffect(() => {
+    getPopularClasses().then((data) => setClasses(data));
+  }, []);
   return (
     <>
       <SectionTitle

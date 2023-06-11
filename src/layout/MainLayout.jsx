@@ -6,11 +6,13 @@ import Footer from "../components/shared/Footer/Footer";
 const MainLayout = () => {
   return (
     <>
-      <Header />
-      <div className="min-h-[calc(100vh-290px)]">
-        <Outlet />
+      <div className="dark:bg-gradient-to-t dark:from-black dark:via-sky-900 dark:to-black">
+        <Header />
+        <div className="min-h-[calc(100vh-290px)]">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

@@ -12,33 +12,33 @@ const Services = () => {
     {
       title: "Student Service",
       image: student,
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      text: "Providing exceptional programs for a rewarding learning experience. ",
     },
     {
       title: "Best Teacher",
       image: teacher,
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      text: "Unlocking global opportunities with recognized certifications and many more.",
     },
     {
       title: "Certificate To The World",
       image: certificate,
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      text: "Student Service: Dedicated to delivering top-notch teaching and Support.",
     },
     {
       title: "Good Program",
       image: service,
-      text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      text: "Ensuring personalized care and support for an enhanced learning journey.",
     },
   ];
   return (
-    <div className="bg-gray-100 py-10 mb-10">
+    <div className="bg-gray-100 dark:bg-transparent py-10 mb-10">
       <SectionTitle
         title={"Our Services"}
         subTitle={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, maiores."
         }
       />
-      <div className="my-container grid grid-cols-2 lg:grid-cols-4 gap-5 py-10">
+      <div className="my-container mt-8 px-4 lg:px-0 grid grid-cols-2 lg:grid-cols-4 gap-5 py-10">
         {data.map((item, index) => (
           <ServicesCard key={index} item={item} />
         ))}

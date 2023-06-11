@@ -15,10 +15,10 @@ const ServicesCard = ({ item }) => {
   const { image, title, text } = item;
   return (
     <Tilt options={defaultOptions}>
-      <div className="space-y-3 bg-white dark:bg-black/90  shadow-lg rounded-lg  p-5">
+      <div className="space-y-3  bg-white dark:bg-black/50  shadow-lg rounded-lg  p-5">
         <img src={image} alt="" />
         <h1 className="text-lg dark:text-gray-300 font-semibold">{title}</h1>
-        <p className="text-gray-600 dark:text-gray-200 tracking-wide  ">
+        <p className="text-gray-600 text-sm  dark:text-gray-200 tracking-wide  ">
           {text}
         </p>
         <button className="border-b-2 border-yellow-500 border-dotted text-sky-500">

@@ -68,15 +68,17 @@ const ClassesCard = ({ classInfo }) => {
   return (
     <div
       className={`${
-        !seats && "bg-rose-600 text-white"
-      } p-5 rounded-lg shadow-xl space-y-3`}>
-      <img className="w-80 rounded h-40" src={image} alt={name} />
-      <h3 className="text-lg py-2 font-semibold">{className}</h3>
+        !seats && "bg-rose-600  text-white"
+      } p-5 rounded-lg shadow-xl space-y-3 dark:bg-black/50`}>
+      <img className="w-80 rounded h-40 object-cover" src={image} alt={name} />
+      <h3 className="text-lg py-2 font-semibold dark:text-gray-300">
+        {className}
+      </h3>
 
-      <div className="flex items-center underline underline-offset-2 text-gray-700 ">
+      <div className="flex items-center underline underline-offset-2 dark:text-gray-300 text-gray-700 ">
         Instructor:
-        <div className="flex ms-2 w-full items-center justify-between">
-          <p className="text-base">{name}</p>
+        <div className="flex ms-2 w-full items-center justify-between ">
+          <p className="text-base ">{name}</p>
           <img
             className="w-12 h-12 object-cover rounded-full"
             src={teacher.image}
@@ -88,8 +90,8 @@ const ClassesCard = ({ classInfo }) => {
         {formattedTime}
       </p>
       <div className="flex mt-2 justify-between text-gray-700">
-        <p>Available Seats: {seats}</p>
-        <p>Price: ${price}</p>
+        <p className="dark:text-gray-300">Available Seats: {seats}</p>
+        <p className="dark:text-yellow-400">Price: ${price}</p>
       </div>
       <button
         disabled={!seats || role}

@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { ImSpinner3 } from "react-icons/im";
 import Spinner3 from "../shared/Spinner/Spinner3";
+import { savePaymentInfo } from "../../api/utils";
 const CheckoutForm = ({ closeModal, classInfo }) => {
   const [cardError, setCardError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -68,10 +69,15 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
       if (paymentIntent.status === "succeeded") {
         // todo : delete from selected by api
         const paymentInfo = {
+          classId: classInfo.id,
           ...classInfo,
           paymentIntentId: paymentIntent.id,
+          time: new Date().toLocaleString(),
         };
-        closeModal();
+        savePaymentInfo(paymentInfo).then((data) => {
+          closeModal();
+          console.log(data);
+        });
 
         toast.success(
           <p className="text-sm">

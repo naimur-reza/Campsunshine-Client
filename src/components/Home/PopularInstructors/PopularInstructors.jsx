@@ -19,7 +19,6 @@ const PopularInstructors = () => {
 
   useEffect(() => {
     getPopularClasses().then((res) => {
-      console.log(res);
       setTeachers(res);
     });
   }, []);

@@ -56,7 +56,7 @@ const ManageClasses = () => {
       <h1 className="text-sm tracking-wider pb-2">
         Total Classes: {classes.length}
       </h1>
-      <table className="min-w-full  bg-white dark:bg-black/30 text-cen">
+      <table className="min-w-full  bg-white dark:bg-black/30 text-center ">
         <thead className="bg-teal-400 text-white">
           <tr>
             <th className="px-3">#</th>
@@ -98,7 +98,7 @@ const ManageClasses = () => {
           </tr>
         </thead>
 
-        <tbody className=" ">
+        <tbody>
           {classes &&
             classes.map((classInfo, index) => (
               <ManageClassesRow

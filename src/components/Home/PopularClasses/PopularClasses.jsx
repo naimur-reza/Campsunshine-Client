@@ -77,6 +77,7 @@ export default function PopularClasses() {
     <>
       <SectionTitle
         title="Popular Classes"
+        color={"text-gray-100"}
         subTitle={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, maiores."
         }

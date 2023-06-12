@@ -18,13 +18,13 @@ const DarkMode = () => {
         <BsMoonStarsFill
           onClick={handleToggle}
           size={24}
-          className="cursor-pointer"
+          className="cursor-pointer text-black/90 "
         />
       ) : (
         <LuSunMoon
           onClick={handleToggle}
           size={24}
-          className="cursor-pointer"
+          className="cursor-pointer text-yellow-400"
         />
       )}
     </div>

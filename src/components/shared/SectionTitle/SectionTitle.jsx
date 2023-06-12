@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../../assets/logo.png";
 const SectionTitle = ({ title, subTitle, color }) => {
   return (
-    <div className="space-y-3 text-center">
+    <div className="space-y-3 pt-5 text-center">
       <h1
         className={`${
           color ? color : "text-gray-800"

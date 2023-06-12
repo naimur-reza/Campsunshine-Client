@@ -17,12 +17,12 @@ const Services = () => {
     {
       title: "Best Teacher",
       image: teacher,
-      text: "Unlocking global opportunities with recognized certifications and many more.",
+      text: "Dedicated to delivering top-notch teaching and Support",
     },
     {
       title: "Certificate To The World",
       image: certificate,
-      text: "Student Service: Dedicated to delivering top-notch teaching and Support.",
+      text: " Unlocking global opportunities with recognized certifications and many more.",
     },
     {
       title: "Good Program",

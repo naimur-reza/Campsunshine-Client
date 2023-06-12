@@ -16,7 +16,7 @@ function Header() {
   };
 
   return (
-    <nav className="z-10 w-full dark:bg-black bg-black/20 dark:text-white/90  fixed   ">
+    <nav className="z-10 w-full dark:bg-black bg-white/10 backdrop-blur-sm dark:text-white/90  fixed   ">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ function Header() {
             <button
               onClick={toggleMenu}
               type="button"
-              className="text-gray-500   hover:text-gray-600   focus:outline-none focus:text-gray-600  "
+              className="text-gray-200   hover:text-gray-400  dark:text-white  focus:outline-none focus:text-gray-600  "
               aria-label="toggle menu">
               {!isOpen ? (
                 <svg
@@ -70,7 +70,7 @@ function Header() {
         {/* Home, Instructors, Classes, Dashboard */}
         {/* Mobile Menu */}
         <div
-          className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
+          className={`absolute text-black  tracking-wider inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:text-white bg-white/70 dark:bg-black  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
             isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
           }`}
           aria-hidden={isOpen ? "false" : "true"}>
@@ -78,35 +78,45 @@ function Header() {
             <NavLink
               to={"/"}
               className={({ isActive }) =>
-                isActive ? "text-teal-500 ms-4" : "ms-4"
+                isActive
+                  ? "text-teal-300 ms-4 underline underline-offset-4"
+                  : "ms-4"
               }>
               Home
             </NavLink>
             <NavLink
               to={"/instructors"}
               className={({ isActive }) =>
-                isActive ? "text-teal-500 ms-4" : "ms-4"
+                isActive
+                  ? "text-teal-300 ms-4 underline underline-offset-4"
+                  : "ms-4"
               }>
               Instructors
             </NavLink>
             <NavLink
               to={"/classes"}
               className={({ isActive }) =>
-                isActive ? "text-teal-500 ms-4" : "ms-4"
+                isActive
+                  ? "text-teal-300 ms-4 underline underline-offset-4"
+                  : "ms-4"
               }>
               Classes
             </NavLink>
             <NavLink
               to={"/dashboard"}
               className={({ isActive }) =>
-                isActive ? "text-teal-500 ms-4" : "ms-4"
+                isActive
+                  ? "text-teal-300 ms-4 underline underline-offset-4"
+                  : "ms-4"
               }>
               Dashboard
             </NavLink>
             <NavLink
               to={"/about"}
               className={({ isActive }) =>
-                isActive ? "text-teal-500 ms-4" : "ms-4"
+                isActive
+                  ? "text-teal-530 ms-4  underline underline-offset-4"
+                  : "ms-4"
               }>
               About
             </NavLink>

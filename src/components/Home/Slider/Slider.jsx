@@ -7,11 +7,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper";
-import img1 from "../../../assets/home/1.jpg";
-import img2 from "../../../assets/home/2.jpg";
-import "./Slider.css";
+
 const BannerSlider = () => {
-  const images = [img1, img2];
+  const images = [
+    " https://i.ibb.co/XZMxsHd/national-cancer-institute-N-aihp118p8-unsplash.jpg",
+    "https://i.ibb.co/428JpVY/cdc-GDok-EYn-Ofn-E-unsplash.jpg",
+    "https://i.ibb.co/9gHfGY7/kenny-eliason-z-FSo6bn-ZJTw-unsplash.jpg",
+  ];
 
   return (
     <>

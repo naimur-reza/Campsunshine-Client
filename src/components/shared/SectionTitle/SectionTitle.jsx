@@ -10,7 +10,7 @@ const SectionTitle = ({ title, subTitle, color }) => {
         {title}
       </h1>
       <img className="mx-auto w-14" src={logo} alt="" />
-      <p className={`${color ? color : "text-gray-600"} dark:text-gray-100`}>
+      <p className={`${color ? color : "text-gray-800"} dark:text-gray-100`}>
         {subTitle}
       </p>
     </div>

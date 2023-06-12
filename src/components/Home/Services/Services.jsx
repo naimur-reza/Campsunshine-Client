@@ -20,9 +20,9 @@ const Services = () => {
       text: "Dedicated to delivering top-notch teaching and Support",
     },
     {
-      title: "Certificate To The World",
+      title: "Certification",
       image: certificate,
-      text: " Unlocking global opportunities with recognized certifications and many more.",
+      text: "Unlocking global opportunities with recognized certifications",
     },
     {
       title: "Good Program",

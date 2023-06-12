@@ -5,14 +5,14 @@ const InstructorCard = ({ info }) => {
   const { teacher, className, email, image, enrolled, name } = info;
   return (
     <>
-      <div className=" bg-black/20  overflow-hidden backdrop-blur-sm rounded  relative p-4 space-y-2 text-center ">
+      <div className=" bg-black/20 w-72 overflow-hidden backdrop-blur-sm rounded  relative p-4 space-y-2 text-center ">
         <img
           src={teacher.image}
           className="h-64 object-cover w-full rounded-s"
           alt=""
         />
         <h1 className="text-lg font-semibold text-yellow-500">{name}</h1>
-        <h2 className="text-sm text-rose-200">{className}</h2>
+        <h2 className="text-sm text-black dark:text-gray-200">{className}</h2>
         <p className="text-sm text-gray-100">Students: {enrolled} </p>
         <p className="bg-white/80  text-sm py-1 rounded text-gray-700">
           {email}

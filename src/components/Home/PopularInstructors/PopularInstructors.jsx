@@ -25,16 +25,26 @@ const PopularInstructors = () => {
   }, []);
 
   return (
-    <div className=" py-14">
+    <div className=" py-1 px-5">
       <SectionTitle
-        color={"text-gray-200"}
         title="Popular Instructors"
         subTitle="Meet Popular Instructors based on student "
       />
 
       <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
+        slidesPerView={1}
+        spaceBetween={28}
+        breakpoints={{
+          // when window width is >= 640px
+          340: {
+            width: 340,
+            slidesPerView: 1,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 3,
+          },
+        }}
         freeMode={true}
         pagination={{
           clickable: true,

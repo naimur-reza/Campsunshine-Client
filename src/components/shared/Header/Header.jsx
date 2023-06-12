@@ -16,7 +16,7 @@ function Header() {
   };
 
   return (
-    <nav className="z-10 w-full dark:bg-black bg-white/10 backdrop-blur-sm dark:text-white/90  fixed   ">
+    <nav className="z-10 w-full dark:bg-black/80 bg-white/10 backdrop-blur-sm dark:text-white/90  fixed   ">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ function Header() {
             <button
               onClick={toggleMenu}
               type="button"
-              className="text-gray-200   hover:text-gray-400  dark:text-white  focus:outline-none focus:text-gray-600  "
+              className=" text-white   hover:text-gray-200  dark:text-white  focus:outline-none focus:text-gray-300  "
               aria-label="toggle menu">
               {!isOpen ? (
                 <svg
@@ -70,7 +70,7 @@ function Header() {
         {/* Home, Instructors, Classes, Dashboard */}
         {/* Mobile Menu */}
         <div
-          className={`absolute text-black  tracking-wider inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:text-white bg-white/70 dark:bg-black  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
+          className={`absolute text-black  tracking-wider inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:text-white bg-white/70 dark:bg-black/80  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
             isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
           }`}
           aria-hidden={isOpen ? "false" : "true"}>

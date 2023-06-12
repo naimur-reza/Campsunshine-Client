@@ -16,7 +16,7 @@ const classNameesCard = ({ info, loading }) => {
   console.log(info);
   const formattedTime = moment(time).fromNow();
   return (
-    <div className="max-w-2xl lg:h-[530px]  overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-black/60">
+    <div className="lg:max-w-2xl lg:h-[530px]  overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-black/60">
       <img
         className="object-fill w-full h-72 hover:scale-105 transition-all duration-500 ease-in-out"
         src={image}

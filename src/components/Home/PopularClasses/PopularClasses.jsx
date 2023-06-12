@@ -17,87 +17,48 @@ import { getPopularClasses } from "../../../api/classes";
 
 export default function PopularClasses() {
   const [classes, setClasses] = useState([]);
-  // const classes = [
-  //   {
-  //     title: "Basic English Speaking",
-  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  //     price: 100,
-  //     enrolled: 100,
-  //     instructor: "Abdul Halim",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-  //     date: new Date(),
-  //   },
-  //   {
-  //     title: "Basic English Speaking",
-  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  //     price: 100,
-  //     enrolled: 100,
-  //     instructor: "Abdul Halim",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-  //     date: new Date(),
-  //   },
-  //   {
-  //     title: "Basic English Speaking",
-  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  //     price: 100,
-  //     enrolled: 100,
-  //     instructor: "Abdul Halim",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-  //     date: new Date(),
-  //   },
-  //   {
-  //     title: "Basic English Speaking",
-  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  //     price: 100,
-  //     enrolled: 100,
-  //     instructor: "Abdul Halim",
-  //     image: "https://themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-  //     date: new Date(),
-  //   },
-  //   {
-  //     title: "Basic English Speaking",
-  //     class_image: "https://i.ibb.co/0jZzQYH/Rectangle-27.png",
-  //     text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  //     price: 100,
-  //     enrolled: 100,
-  //     instructor: "Abdul Halim",
-  //     image: "https:/P/themesfamily.com/tm/hadi/assets/img/client/img-3.jpg",
-  //     date: new Date(),
-  //   },
-  // ];
 
   useEffect(() => {
     getPopularClasses().then((data) => setClasses(data));
   }, []);
   return (
     <>
-      <SectionTitle
-        title="Popular Classes"
-        color={"text-gray-100"}
-        subTitle={
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, maiores."
-        }
-      />
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
-        className="my-container my-10">
-        {classes &&
-          classes.map((info, index) => (
-            <SwiperSlide key={index}>
-              <ClassesCard key={index} info={info} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
+      <div className="px-5">
+        <SectionTitle
+          title="Popular Classes"
+          subTitle={
+            "Explore our most popular classes and learn the latest skills"
+          }
+        />
+        <Swiper
+          // slidesPerView={3}
+          spaceBetween={20}
+          breakpoints={{
+            // when window width is >= 640px
+            640: {
+              width: 640,
+              slidesPerView: 2,
+            },
+            // when window width is >= 768px
+            768: {
+              width: 768,
+              slidesPerView: 2,
+            },
+          }}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="my-container my-10">
+          {classes &&
+            classes.map((info, index) => (
+              <SwiperSlide key={index}>
+                <ClassesCard key={index} info={info} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </div>
     </>
   );
 }

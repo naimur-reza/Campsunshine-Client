@@ -43,26 +43,28 @@ const ClassesCard = ({ classInfo }) => {
     }
 
     // after click on select button
-    setLoading(true);
-    const selectInfo = {
-      classId: id,
-      name: name,
-      className: className,
-      price: price,
-      image: image,
-      teacher: teacher,
-      userEmail: user.email,
-    };
-    selectClass(selectInfo)
-      .then((data) => {
-        console.log(data);
-        toast.success("Class Selected");
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
+    else {
+      setLoading(true);
+      const selectInfo = {
+        classId: id,
+        name: name,
+        className: className,
+        price: price,
+        image: image,
+        teacher: teacher,
+        userEmail: user.email,
+      };
+      selectClass(selectInfo)
+        .then((data) => {
+          console.log(data);
+          toast.success("Class Selected");
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }
   };
 
   return (

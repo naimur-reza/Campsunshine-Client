@@ -4,6 +4,7 @@ import GoogleLogin from "../../../components/shared/SocialLogin/GoogleLogin";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { FaEye, FaSpinner } from "react-icons/fa";
+import { BiHide } from "react-icons/bi";
 import logo from "../../../assets/logo.png";
 // import "";
 function Login() {
@@ -43,7 +44,7 @@ function Login() {
                 <img className="w-12 " src={logo} alt="" />
               </div>
 
-              <p className="mt-3 text-gray-200 dark:text-gray-600">
+              <p className="mt-3 text-gray-200 ">
                 Sign in to access your account
               </p>
             </div>
@@ -53,7 +54,7 @@ function Login() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm text-gray-200 dark:text-gray-200">
+                    className="block mb-2 text-sm text-gray-200   ">
                     Email Address
                   </label>
                   <input
@@ -69,7 +70,7 @@ function Login() {
                   <div className="flex justify-between mb-2">
                     <label
                       htmlFor="password"
-                      className="text-sm text-gray-200 dark:text-gray-200">
+                      className="text-sm text-gray-200   ">
                       Password
                     </label>
                   </div>
@@ -84,7 +85,11 @@ function Login() {
                     <span
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-[25%] cursor-pointer hover:text-black duration-200">
-                      <FaEye size={20} className="text-gray-00  " />
+                      {showPassword ? (
+                        <BiHide size={20} className="text-gray-700" />
+                      ) : (
+                        <FaEye size={20} className="text-gray-700" />
+                      )}
                     </span>
                   </div>
                 </div>

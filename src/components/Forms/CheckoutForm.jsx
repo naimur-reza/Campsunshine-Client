@@ -68,7 +68,8 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
     } else {
       console.log("[paymentIntent]", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        // todo : delete from selected by api
+        const newInfo = Object.assign({}, classInfo);
+        delete newInfo._id;
         const paymentInfo = {
           classId: classInfo.id,
           ...classInfo,

@@ -24,24 +24,24 @@ Welcome to the Summer Camp School Website project! This web application is desig
 
 ## Installation
 
-1. Clone the repository:
+1. _Clone the repository_:
 
 ````shell
 git clone https://github.com/your-username/summer-camp-school-website.git
 
 
-2. Install Dependencies:
+
+2. *Install Dependencies*:
 
 ```shell
 npm install
 
-3. Start the development server:
+3. *Start the development server*:
 
 ```shell
 npm run dev
 
 
 4. Open your browser and visit `http://localhost:3000` to access the application.
-
 
 ````

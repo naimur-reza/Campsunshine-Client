@@ -9,7 +9,7 @@ const Avatar = ({ image, setMenuOpen, menuOpen }) => {
         <img
           referrerPolicy="no-referrer"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="h-9 w-9 rounded-full"
+          className="h-9 w-9 rounded-full object-cover"
           src={image}
           alt="user"
         />

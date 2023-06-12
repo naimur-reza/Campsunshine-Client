@@ -7,7 +7,7 @@ const UserMenu = () => {
   return (
     <div className="space-y-2 text-sm px-3">
       <img
-        className="mx-auto rounded-full w-20 h-20 sm:w-24 sm:h-24"
+        className="mx-auto rounded-full object-cover w-20 h-20 sm:w-24 sm:h-24"
         src={user.photoURL}
         alt={user}
       />

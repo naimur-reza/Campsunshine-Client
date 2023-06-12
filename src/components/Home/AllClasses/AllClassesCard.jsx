@@ -68,7 +68,7 @@ const ClassesCard = ({ classInfo }) => {
   return (
     <div
       className={`${
-        !seats && "bg-rose-600  text-white"
+        !seats && "bg-rose-600 dark:bg-red-300/70  text-white"
       } p-5 rounded-lg shadow-xl space-y-3 dark:bg-black/50`}>
       <img className="w-80 rounded h-40 object-cover" src={image} alt={name} />
       <h3 className="text-lg py-2 font-semibold dark:text-gray-300">

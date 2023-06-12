@@ -30,6 +30,7 @@ const Services = () => {
       text: "Ensuring personalized care and support for an enhanced learning journey.",
     },
   ];
+
   return (
     <div className="bg-gray-100 dark:bg-transparent py-10 mb-10">
       <SectionTitle

@@ -31,9 +31,6 @@ const BannerSlider = () => {
         "Nurture your child's talents and passions in a supportive environment. Join us for a summer of growth and achievement.",
     },
   ];
-  // " https://i.ibb.co/XZMxsHd/national-cancer-institute-N-aihp118p8-unsplash.jpg",
-  // "https://i.ibb.co/428JpVY/cdc-GDok-EYn-Ofn-E-unsplash.jpg",
-  // "https://i.ibb.co/9gHfGY7/kenny-eliason-z-FSo6bn-ZJTw-unsplash.jpg",
 
   return (
     <>

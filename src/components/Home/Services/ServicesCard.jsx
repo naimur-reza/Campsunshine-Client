@@ -1,21 +1,18 @@
 import React from "react";
 import { Tilt } from "react-tilt";
-const defaultOptions = {
-  reverse: false, // reverse the tilt direction
-  max: 35, // max tilt rotation (degrees)
-  perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-  scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-  speed: 1000, // Speed of the enter/exit transition
-  transition: true, // Set a transition on enter/exit.
-  axis: null, // What axis should be disabled. Can be X or Y.
-  reset: true, // If the tilt effect has to be reset on exit.
-  easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
-};
-const ServicesCard = ({ item }) => {
+
+const ServicesCard = ({ item, index }) => {
   const { image, title, text } = item;
+
   return (
-    <Tilt options={defaultOptions}>
-      <div className="space-y-3 lg:h-80 border-teal-500 border-2 dark:shadow-teal-700   bg-white dark:bg-black/50  shadow-xl cursor-pointer rounded-lg  p-5">
+    <Tilt>
+      <div
+        options={{
+          max: 45,
+          scale: 0.5,
+          speed: 450,
+        }}
+        className="space-y-3 lg:h-80 border-teal-400 border-2 dark:shadow-teal-700   bg-white dark:bg-black/50  shadow-xl cursor-pointer rounded-lg  p-5">
         <img src={image} className="h-24" alt="" />
         <h1 className="text-lg dark:text-gray-300 font-semibold">{title}</h1>
         <p className="text-gray-600 text-sm  dark:text-gray-200 tracking-wide  ">

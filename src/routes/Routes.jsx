@@ -15,6 +15,7 @@ import MyEnrolledClasses from "../pages/Dashboard/MyEnrolledClasses";
 import AllClasses from "../pages/AllClasses/AllClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import MyClasses from "../pages/Dashboard/MyClasses";
+import About from "../components/About/About";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/classes", element: <AllClasses /> },
       { path: "/instructors", element: <Instructors /> },
+      { path: "/about", element: <About /> },
     ],
   },
   {

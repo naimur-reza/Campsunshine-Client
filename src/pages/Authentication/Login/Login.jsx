@@ -5,17 +5,14 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { FaEye, FaSpinner } from "react-icons/fa";
 import logo from "../../../assets/logo.png";
+// import "";
 function Login() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || "/";
   const [loading, setLoading] = useState(false);
   const { logIn } = useContext(AuthContext);
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
 
   const handleLogin = (e) => {
     setLoading(true);
@@ -37,39 +34,16 @@ function Login() {
   };
 
   return (
-    <div className={`bg-white ${isDarkMode ? "dark:bg-gray-900" : ""}`}>
-      <div className="flex justify-center h-screen">
-        <div
-          className={`hidden bg-cover lg:block lg:w-2/3 ${
-            isDarkMode ? "bg-gray-900 bg-opacity-40" : ""
-          }`}
-          style={{
-            backgroundImage:
-              "url(https://img.freepik.com/free-photo/couple-tourists-enjoying-camping-by-lake_335224-1342.jpg?w=740&t=st=1686136315~exp=1686136915~hmac=eb36131a1f85baa4748a6a182286f62f2b89f584bc08fb750ff2c1ceaed3581a)",
-          }}>
-          <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
-            <div>
-              <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                Meraki UI
-              </h2>
-
-              <p className="max-w-xl mt-3 text-gray-300">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-                autem ipsa, nulla laboriosam dolores, repellendus perferendis
-                libero suscipit nam temporibus molestiae
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center bg-gradient-to-b from-black via-purple-950 to-red-950 w-full max-w-md px-6 mx-auto lg:w-2/6">
+    <div className=" bg-[url('../../../../src/assets/login/shapes.svg')] bg-cover ">
+      <div className=" min-h-screen  ">
+        <div className="flex items-center  pt-14 w-full max-w-md px-6 mx-auto lg:w-2/6 h-full">
           <div className="flex-1">
             <div className="text-center">
               <div className="flex justify-center mx-auto">
                 <img className="w-12 " src={logo} alt="" />
               </div>
 
-              <p className="mt-3 text-gray-500 dark:text-gray-300">
+              <p className="mt-3 text-gray-200 dark:text-gray-600">
                 Sign in to access your account
               </p>
             </div>
@@ -79,7 +53,7 @@ function Login() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                    className="block mb-2 text-sm text-gray-200 dark:text-gray-200">
                     Email Address
                   </label>
                   <input
@@ -95,7 +69,7 @@ function Login() {
                   <div className="flex justify-between mb-2">
                     <label
                       htmlFor="password"
-                      className="text-sm text-gray-600 dark:text-gray-200">
+                      className="text-sm text-gray-200 dark:text-gray-200">
                       Password
                     </label>
                   </div>

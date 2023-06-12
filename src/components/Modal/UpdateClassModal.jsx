@@ -75,7 +75,7 @@ const UpdateClassModal = ({ closeModal, isOpen, _id, classInfo, refetch }) => {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95">
-              <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full  max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <h1 className="text-xl py-2 mb-6 rounded-lg text-white text-center  bg-teal-400">
                   Update Your Class
                 </h1>

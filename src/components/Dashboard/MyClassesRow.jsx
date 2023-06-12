@@ -49,7 +49,9 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
               />
             </div>
             <div className="ml-4">
-              <div className="text-sm font-medium text-gray-900">{name}</div>
+              <div className="text-sm font-medium dark:text-gray-200 text-gray-900">
+                {name}
+              </div>
               <div className="text-sm ">{teacher?.email}</div>
             </div>
           </div>

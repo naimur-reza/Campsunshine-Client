@@ -2,10 +2,12 @@ import React from "react";
 import logo from "../../../assets/logo.png";
 
 import "./Footer.css";
+import wave from "../../../assets/footer/wave1.svg";
+// import
 const Footer = () => {
   return (
     <>
-      <footer className="wave">
+      <footer className="">
         <div className=" relative   px-6 py-16 mx-auto">
           <div className="flex flex-col items-center text-center">
             <a href="#">
@@ -105,6 +107,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      {/* <img src={wave} className="absolute z-20" alt="" /> */}
     </>
   );
 };

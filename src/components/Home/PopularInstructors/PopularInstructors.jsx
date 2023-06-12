@@ -25,7 +25,7 @@ const PopularInstructors = () => {
   }, []);
 
   return (
-    <div className="blob py-14">
+    <div className=" py-14">
       <SectionTitle
         color={"text-gray-200"}
         title="Popular Instructors"

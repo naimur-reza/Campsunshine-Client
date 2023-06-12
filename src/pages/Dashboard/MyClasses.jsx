@@ -24,7 +24,7 @@ const MyClasses = () => {
       {myClasses && Array.isArray(myClasses) && myClasses.length > 0 ? (
         <>
           <h1>My Classes : {myClasses.length}</h1>
-          <table className="min-w-full  bg-white text-cen">
+          <table className="min-w-full dark:bg-black/30 bg-white text-cen">
             <thead className="bg-teal-400 text-white">
               <tr>
                 <th className="px-3">#</th>

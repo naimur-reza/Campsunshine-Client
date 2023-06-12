@@ -34,7 +34,7 @@ const MyClassesRow = ({ classInfo, index, refetch }) => {
       <tr>
         <td className="text-center">{index + 1}.</td>
         <td className="pr-2">
-          <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
+          <div className="bg-gray-100 dark:bg-transparent w-fit p-2 rounded-lg my-1">
             <img src={image} className=" my-1 rounded-md " alt="" />
             <h1 className="text-sm">{className}</h1>
           </div>

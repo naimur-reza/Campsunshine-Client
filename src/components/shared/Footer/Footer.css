@@ -1,6 +1,7 @@
 .wave {
-  background-image: url("/src/assets/footer/wave.svg");
+  background-image: url("/src/assets/footer/polygon.svg");
   background-repeat: no-repeat;
   background-position: bottom;
-  background-size: cover;
+  background-size: contain;
+  background-attachment: fixed;
 }

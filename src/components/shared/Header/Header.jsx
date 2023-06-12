@@ -29,7 +29,7 @@ function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex lg:hidden">
+          <div className="flex  lg:hidden">
             <button
               onClick={toggleMenu}
               type="button"
@@ -70,7 +70,7 @@ function Header() {
         {/* Home, Instructors, Classes, Dashboard */}
         {/* Mobile Menu */}
         <div
-          className={`absolute text-black  tracking-wider inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:text-white bg-white/70 dark:bg-black/80  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
+          className={`absolute text-black  tracking-wider inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out dark:text-white bg-white/70  lg:dark:bg-transparent dark:bg-black/80  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center ${
             isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"
           }`}
           aria-hidden={isOpen ? "false" : "true"}>

@@ -6,10 +6,11 @@ import { toast } from "react-hot-toast";
 import GoogleLogin from "../../../components/shared/SocialLogin/GoogleLogin";
 import { FaSpinner } from "react-icons/fa";
 import { saveUser } from "../../../api/auth";
+import { uploadImage } from "../../../api/utils";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [imageData, setImageData] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -40,12 +41,14 @@ function SignUp() {
       return;
     }
     createUser(email, password)
-      .then((res) => {
-        updateUserProfile(name, photoUrl).then(() => {
-          toast.success("Account created successfully");
-          saveUser(res.user);
-          navigate("/");
-          setLoading(false);
+      .then((data) => {
+        uploadImage(imageData).then((res) => {
+          updateUserProfile(name, res.data.display_url).then(() => {
+            toast.success("Account created successfully");
+            saveUser(data.user);
+            navigate("/");
+            setLoading(false);
+          });
         });
       })
       .catch((err) => {
@@ -88,14 +91,15 @@ function SignUp() {
                 <label
                   htmlFor="text"
                   className="block mb-2 text-sm text-gray-200  ">
-                  Photo Url
+                  Your Photo
                 </label>
                 <input
-                  type="url"
-                  name="photoUrl"
+                  type="file"
+                  name="image"
                   id="photoUrl"
-                  {...register("photoUrl", { required: true })}
-                  placeholder="Your Photo Url"
+                  onChange={(e) => setImageData(e.target.files[0])}
+                  // {...register("photoUrl", { required: true })}
+
                   className={`block  w-full bg-gray-100 px-4 py-2 rounded-md placeholder-gray-700 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-40 border-l-4 border-yellow-400`}
                 />
               </div>

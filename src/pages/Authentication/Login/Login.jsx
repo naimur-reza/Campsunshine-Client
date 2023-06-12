@@ -109,7 +109,7 @@ function Login() {
               </div>
               <GoogleLogin />
 
-              <p className="mt-6 text-sm text-center text-gray-400">
+              <p className="mt-6 text-sm text-center text-gray-200">
                 Don't have an account yet?{" "}
                 <Link
                   to={"/signUp"}

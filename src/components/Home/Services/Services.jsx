@@ -32,7 +32,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="bg-gray-100 dark:bg-transparent py-10 mb-10">
+    <div className="bg-gray-100 dark:bg-transparent overflow-hidden py-10 mb-10">
       <SectionTitle
         title={"Our Services"}
         subTitle={"Our services are designed to help you achieve your goals"}

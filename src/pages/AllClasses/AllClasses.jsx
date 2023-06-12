@@ -39,14 +39,14 @@ const Classes = () => {
   };
   return (
     <>
-      <div className="pt-[92px] my-container">
+      <div className="pt-[92px]  my-container">
         <SectionTitle title="All Classes" subTitle="Find what you want!" />
         <motion.ul
           className="container"
           variants={container}
           initial="hidden"
           animate="visible">
-          <div className="grid grid-cols-1 mt-7 lg:grid-cols-3 place-items-center gap-5">
+          <div className="grid px-5 lg:px-0 grid-cols-1 mt-7 lg:grid-cols-3 place-items-center gap-5">
             {classes &&
               classes.map((classInfo) => {
                 return (

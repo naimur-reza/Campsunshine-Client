@@ -4,7 +4,7 @@ import CheckoutForm from "../Forms/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const CheckoutModal = ({ closeModal, isOpen, classInfo }) => {
+const CheckoutModal = ({ closeModal, isOpen, classInfo, refetch }) => {
   const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PUBLIC_KEY}`);
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -32,7 +32,11 @@ const CheckoutModal = ({ closeModal, isOpen, classInfo }) => {
               leaveTo="opacity-0 scale-95">
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Elements stripe={stripePromise}>
-                  <CheckoutForm closeModal={closeModal} classInfo={classInfo} />
+                  <CheckoutForm
+                    refetch={refetch}
+                    closeModal={closeModal}
+                    classInfo={classInfo}
+                  />
                 </Elements>
               </Dialog.Panel>
             </Transition.Child>

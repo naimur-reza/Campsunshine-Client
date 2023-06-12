@@ -24,3 +24,10 @@ export const savePaymentInfo = async (data) => {
   );
   return res.data;
 };
+
+export const getPaymentInfo = async (email) => {
+  const res = await axios.get(
+    `${import.meta.env.VITE_API_URL}/payment/${email}`
+  );
+  return res.data;
+};

@@ -27,6 +27,7 @@ const PopularInstructors = () => {
   return (
     <div className=" py-1 px-5">
       <SectionTitle
+        color={"text-gray-200"}
         title="Popular Instructors"
         subTitle="Meet Popular Instructors based on student "
       />

@@ -3,19 +3,23 @@ import { FaTrash } from "react-icons/fa";
 import { MdPayment } from "react-icons/md";
 import CheckoutModal from "../Modal/CheckoutModal";
 
-const MySelectedClassRow = ({ classInfo, handleRemove, index }) => {
+const MySelectedClassRow = ({ classInfo, handleRemove, refetch, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-  const { _id, className, image, teacher, price, status, name } = classInfo;
+  const { _id, className, image, teacher, price, name } = classInfo;
 
   return (
     <>
       <tr>
-        <td className="px-2">{index + 1}.</td>
+        <td className="px-3">{index + 1}.</td>
         <td>
-          <div className="bg-gray-100 w-fit p-2 rounded-lg my-1">
-            <img src={image} className="w-36 h-20 my-1 rounded-md " alt="" />
+          <div className="bg-gray-100 dark:bg-transparent w-fit p-2 rounded-lg my-1">
+            <img
+              src={image}
+              className="w-36 object-cover h-28 my-1 rounded-md "
+              alt=""
+            />
             <h1 className="text-sm">{className}</h1>
           </div>
         </td>
@@ -23,13 +27,15 @@ const MySelectedClassRow = ({ classInfo, handleRemove, index }) => {
           <div className="flex items-center">
             <div className="flex-shrink-0 w-10 h-10">
               <img
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 object-cover rounded-full"
                 src={teacher?.image}
                 alt="User Avatar"
               />
             </div>
             <div className="ml-4">
-              <div className="text-sm font-medium text-gray-900">{name}</div>
+              <div className="text-sm font-medium dark:text-gray-200 text-gray-900">
+                {name}
+              </div>
               <div className="text-sm ">{teacher?.email}</div>
             </div>
           </div>
@@ -53,6 +59,7 @@ const MySelectedClassRow = ({ classInfo, handleRemove, index }) => {
       </tr>
 
       <CheckoutModal
+        refetch={refetch}
         isOpen={isOpen}
         closeModal={closeModal}
         classInfo={classInfo}

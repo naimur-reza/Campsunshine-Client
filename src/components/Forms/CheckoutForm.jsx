@@ -8,7 +8,7 @@ import { ImSpinner3 } from "react-icons/im";
 import Spinner3 from "../shared/Spinner/Spinner3";
 import { savePaymentInfo } from "../../api/utils";
 import { removeSelectedClass } from "../../api/selectClasses";
-const CheckoutForm = ({ closeModal, classInfo }) => {
+const CheckoutForm = ({ closeModal, classInfo, refetch }) => {
   const [cardError, setCardError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
@@ -79,6 +79,7 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
         savePaymentInfo(paymentInfo).then((data) => {
           removeSelectedClass(classInfo._id);
           closeModal();
+          refetch();
           console.log(data);
         });
 
@@ -121,7 +122,11 @@ const CheckoutForm = ({ closeModal, classInfo }) => {
   return (
     <>
       <h1 className="text-lg font-semibold text-gray-700 mb-4">Payment</h1>
-      <img src={classInfo.image} className="w-full rounded-lg mb-5" alt="" />
+      <img
+        src={classInfo.image}
+        className="w-full h-64 object-cover rounded-lg mb-5"
+        alt=""
+      />
       <h1 className="text-gray-600 mb-2">{classInfo.className}</h1>
       <p className="text-gray-600 ">Price: ${classInfo.price}</p>
       <form onSubmit={handleSubmit}>

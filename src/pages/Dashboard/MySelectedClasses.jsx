@@ -59,7 +59,7 @@ const MySelectedClasses = () => {
         <>
           <h1>Class Selected: {classes.length}</h1>
 
-          <table className="min-w-full  bg-white text-cen">
+          <table className="min-w-full dark:bg-black/30 bg-white text-cen">
             <thead className="bg-teal-400 text-white">
               <tr>
                 <th scope="col" className="px-2">
@@ -100,6 +100,7 @@ const MySelectedClasses = () => {
                     key={classInfo._id}
                     classInfo={classInfo}
                     index={index}
+                    refetch={refetch}
                     handleRemove={handleRemove}
                   />
                 ))}

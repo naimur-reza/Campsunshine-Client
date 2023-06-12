@@ -31,7 +31,12 @@ const MyEnrolledClasses = () => {
                 <th
                   scope="col"
                   className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
-                  Instructor
+                  Transaction ID
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-sm font-medium  uppercase tracking-wider">
+                  Date
                 </th>
                 <th
                   scope="col"

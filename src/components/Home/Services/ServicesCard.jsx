@@ -15,7 +15,7 @@ const ServicesCard = ({ item }) => {
   const { image, title, text } = item;
   return (
     <Tilt options={defaultOptions}>
-      <div className="space-y-3 h-80 border-teal-500 border-2 dark:shadow-teal-700   bg-white dark:bg-black/50  shadow-xl cursor-pointer rounded-lg  p-5">
+      <div className="space-y-3 lg:h-80 border-teal-500 border-2 dark:shadow-teal-700   bg-white dark:bg-black/50  shadow-xl cursor-pointer rounded-lg  p-5">
         <img src={image} className="h-24" alt="" />
         <h1 className="text-lg dark:text-gray-300 font-semibold">{title}</h1>
         <p className="text-gray-600 text-sm  dark:text-gray-200 tracking-wide  ">

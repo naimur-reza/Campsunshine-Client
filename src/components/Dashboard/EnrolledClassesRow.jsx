@@ -2,7 +2,8 @@ import React from "react";
 import { TbListDetails } from "react-icons/tb";
 
 const EnrolledClassesRow = ({ classInfo, index }) => {
-  const { image, className, name, teacher, price } = classInfo;
+  const { image, className, name, teacher, price, time, paymentIntentId } =
+    classInfo;
   return (
     <tr>
       <td className="px-3">{index + 1}.</td>
@@ -16,24 +17,8 @@ const EnrolledClassesRow = ({ classInfo, index }) => {
           <h1 className="text-sm">{className}</h1>
         </div>
       </td>
-      <td className="px-6 py-4 whitespace-nowrap">
-        <div className="flex items-center">
-          <div className="flex-shrink-0 w-10 h-10">
-            <img
-              className="w-10 h-10 object-cover rounded-full"
-              src={teacher?.image}
-              alt="User Avatar"
-            />
-          </div>
-          <div className="ml-4">
-            <div className="text-sm font-medium dark:text-gray-200 text-gray-900">
-              {name}
-            </div>
-            <div className="text-sm ">{teacher?.email}</div>
-          </div>
-        </div>
-      </td>
-
+      <td className="px-6 py-4 whitespace-nowrap text-sm">{paymentIntentId}</td>
+      <td className="text-sm">{time}</td>
       <td className="px-6 py-4 whitespace-nowrap">${price}</td>
       <td className="px-6 py-4 whitespace-nowrap">
         <button className="bg-teal-500 p-3 hover:bg-teal-600 transition-all rounded-full ">

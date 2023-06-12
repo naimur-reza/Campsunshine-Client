@@ -9,7 +9,7 @@ const Home = () => {
     <div className=" ">
       <Slider />
       <Services />
-      <div className="dark:bg-[url('../../../src/assets/footer/wave1.svg')] bg-cover s bg-fixed  bg-[url('../../../src/assets/home/cool.svg')]">
+      <div className="dark:bg-[url('../../../src/public/wave1.svg')] bg-cover s bg-fixed  bg-[url('../../../src/assets/home/cool.svg')]">
         <PopularClasses />
         <PopularInstructors />
       </div>

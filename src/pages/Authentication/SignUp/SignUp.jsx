@@ -60,7 +60,7 @@ function SignUp() {
       });
   };
   return (
-    <div className=" bg-[url('../../../../src/assets/login/shapes.svg')] bg-cover py-5 lg:py-0 pt-5  lg:min-h-screen">
+    <div className=" bg-[url('../../../../public/shapes.svg')] bg-cover py-5 lg:py-0 pt-5  lg:min-h-screen">
       <div className="flex items-center  px-6 mx-auto lg:w-2/6">
         <div className="flex-1">
           <div className="text-center">

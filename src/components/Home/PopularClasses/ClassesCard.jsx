@@ -52,7 +52,7 @@ const classNameesCard = ({ info, loading }) => {
               <p className="mx-1 text-sm text-gray-600 dark:text-gray-300">
                 {name}
               </p>
-              <p className="text-sm bg-sky-200 px-1 dark:text-black dark:bg-gray-50 rounded-full">
+              <p className="text-xs lg:text-sm bg-sky-200 px-1 dark:text-black dark:bg-gray-50 rounded-full">
                 {formattedTime}
               </p>
             </div>

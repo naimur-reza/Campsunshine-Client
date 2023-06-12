@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { FaEye, FaSpinner } from "react-icons/fa";
 import { BiHide } from "react-icons/bi";
 import logo from "../../../assets/logo.png";
-// import "";
+import "../../../../public/shapes.svg";
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ function Login() {
   };
 
   return (
-    <div className=" bg-[url('../../../../src/assets/login/shapes.svg')] bg-cover ">
+    <div className=" bg-[url('../../../../public/shapes.svg')] bg-cover ">
       <div className=" min-h-screen  ">
         <div className="flex items-center  pt-14 w-full max-w-md px-6 mx-auto lg:w-2/6 h-full">
           <div className="flex-1">

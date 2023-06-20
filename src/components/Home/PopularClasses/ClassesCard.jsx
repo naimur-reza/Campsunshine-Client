@@ -13,7 +13,7 @@ const classNameesCard = ({ info, loading }) => {
     name,
     className,
   } = info || {};
-  console.log(info);
+
   const formattedTime = moment(time).fromNow();
   return (
     <div className="lg:max-w-2xl lg:h-[530px]  overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-black/60">

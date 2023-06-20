@@ -45,5 +45,6 @@ export const getAllUsers = async () => {
 export const getRole = async (email) => {
   const res = await axios(`${import.meta.env.VITE_API_URL}/users/${email}`);
   const data = await res.data;
+  localStorage.setItem("role", data.role);
   return data.role;
 };

@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { FaEye, FaSpinner } from "react-icons/fa";
 import { BiHide } from "react-icons/bi";
 import logo from "../../../assets/logo.png";
-import "../../../../public/shapes.svg";
+
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();

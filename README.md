@@ -4,8 +4,8 @@ Welcome to the Summer Camp School Website project! This web application is desig
 
 <h4>Live Link : https://campsunshine-c653c.web.app/ </h4>
 <h4>Admin Login</h4>
-<h6>Id: admin@gmail.com</h6>
-<h6>Password: Admin123@#$</h6>
+<h5>Id: admin@gmail.com</h5>
+<h5>Password: Admin123@#$</h5>
 
 ## Technologies Used
 

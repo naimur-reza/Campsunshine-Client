@@ -7,7 +7,7 @@ Welcome to the Summer Camp School Website project! This web application is desig
 <h5>Id: admin@gmail.com</h5>
 <h5>Password: Admin123@#$</h5>
 
-## Technologies Used
+## Technologies Used 
 
 - Vite: Fast and lightweight build tool for React applications.
 - React: JavaScript library for building user interfaces.

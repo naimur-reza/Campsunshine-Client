@@ -16,11 +16,13 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import MyClasses from "../pages/Dashboard/MyClasses";
 import About from "../components/About/About";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <Home /> },
       { path: "/classes", element: <AllClasses /> },

@@ -18,11 +18,11 @@ function Header() {
   return (
     <nav className="z-10 w-full dark:bg-black/80 bg-white/10 backdrop-blur-sm dark:text-white/90  fixed   ">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
           <Link to={"/"}>
             <div className="flex items-center gap-2">
               <img className="w-12 h-12" src={logo} alt="" />
-              <p className=" text-xl font-semibold bg-gradient-to-r from-teal-500 via-red-500  to-yellow-500 text-transparent bg-clip-text  uppercase ">
+              <p className=" text-xl font-semibold bg-gradient-to-r from-teal-500 via-red-500  to-yellow-500 text-transparent bg-clip-text  uppercase cursor-pointer ">
                 CampSunshine
               </p>
             </div>

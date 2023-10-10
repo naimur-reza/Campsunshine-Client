@@ -10,7 +10,7 @@ const Home = () => {
     <div className=" ">
       <Slider />
       <Services />
-      <div className="dark:bg-[url('https://svgshare.com/i/u7Z.svg')] bg-cover s bg-fixed  bg-[url('https://svgshare.com/i/u9z.svg')]">
+      <div className="">
         <PopularClasses />
         <PopularInstructors />
       </div>

@@ -18,7 +18,7 @@ const classNameesCard = ({ info, loading }) => {
   const formattedTime = moment(time).fromNow();
   return (
     <Link to={"classes"} className="cursor-pointer">
-      <div className="lg:max-w-2xl lg:h-[530px]  overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-black/60 cursor-pointer">
+      <div className="lg:max-w-2xl lg:h-[530px] mb-10 overflow-hidden bg-gray-100 rounded-lg shadow-md dark:bg-black/60 cursor-pointer">
         <div className="h-72 overflow-hidden ">
           <img
             className="object-fill h-full w-full  hover:scale-105 transition-all duration-200 ease-in-out"

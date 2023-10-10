@@ -5,6 +5,7 @@ import { getAllClasses } from "../../api/classes";
 import ClassesCard from "../../components/Home/AllClasses/AllClassesCard";
 import Spinner2 from "../../components/shared/Spinner/Spinner2";
 import { motion } from "framer-motion";
+import { ScrollRestoration } from "react-router-dom";
 const Classes = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
@@ -39,6 +40,7 @@ const Classes = () => {
   };
   return (
     <>
+      <ScrollRestoration />
       <div className="pt-[92px]  my-container">
         <SectionTitle title="All Classes" subTitle="Find what you want!" />
         <motion.ul

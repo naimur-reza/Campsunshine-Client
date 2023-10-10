@@ -25,7 +25,7 @@ export default function PopularClasses() {
     <>
       <div className="px-5">
         <SectionTitle
-          color={"text-gray-200"}
+          // color={"text-gray-200"}
           title="Popular Classes"
           subTitle={
             "Explore our most popular classes and learn the latest skills"

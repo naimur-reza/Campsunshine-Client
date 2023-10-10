@@ -16,8 +16,8 @@ function Header() {
   };
 
   return (
-    <nav className="z-10 w-full dark:bg-black/80 bg-white/10 backdrop-blur-sm dark:text-white/90  fixed   ">
-      <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+    <nav className="z-10 w-full dark:bg-transparent border-b border-gray-300/60 dark:border-gray-300/40   backdrop-blur-sm dark:text-white/90  fixed   ">
+      <div className="container px-6 py-3 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between ">
           <Link to={"/"}>
             <div className="flex items-center gap-2">

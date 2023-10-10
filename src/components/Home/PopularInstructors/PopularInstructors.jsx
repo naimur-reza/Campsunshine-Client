@@ -15,7 +15,7 @@ import "./style.css";
 import { FreeMode, Pagination } from "swiper";
 import { getPopularClasses } from "../../../api/classes";
 const PopularInstructors = () => {
-  const [teachers, setTeachers] = useState(null);
+  const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
     getPopularClasses().then((res) => {
@@ -32,17 +32,17 @@ const PopularInstructors = () => {
       />
 
       <Swiper
-        slidesPerView={1}
-        spaceBetween={28}
+        spaceBetween={20}
         breakpoints={{
           // when window width is >= 640px
-          340: {
-            width: 340,
-            slidesPerView: 1,
+          640: {
+            width: 640,
+            slidesPerView: 2,
           },
           // when window width is >= 768px
           768: {
-            slidesPerView: 3,
+            width: 768,
+            slidesPerView: 2,
           },
         }}
         freeMode={true}

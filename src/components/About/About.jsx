@@ -2,9 +2,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="dark:bg-transparent dark:text-gray-200 pt-28">
+    <section className="dark:bg-transparent  dark:text-gray-200 pt-28">
       <div className="container mx-auto px-4">
-        <div className="md:flex md:flex-row-reverse md:justify-between">
+        <div className="md:flex md:flex-row md:justify-between">
           <div className="md:w-1/2">
             <h2 className="text-3xl font-bold mb-6">
               Welcome to our Summer Camp School!

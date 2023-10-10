@@ -14,7 +14,7 @@ import "./style.css";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
 import { getPopularClasses } from "../../../api/classes";
-import Marquee from "react-fast-marquee";
+
 const PopularInstructors = () => {
   const [teachers, setTeachers] = useState([]);
 

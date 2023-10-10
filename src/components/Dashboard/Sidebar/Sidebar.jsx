@@ -30,7 +30,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Small Screen Navbar */}
-      <div className="bg-gray-100 dark:bg-black/50   text-gray-800 flex justify-between md:hidden">
+      <div className="bg-gray-100 dark:bg-black/50   text-gray-800 flex justify-between md:hidden ">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             {/* <Logo /> */}
@@ -50,7 +50,7 @@ const Sidebar = () => {
       </div>
       {/* <aside className="flex  flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-gray-100 "> */}
       <aside
-        className={`z-10 dark:bg-black/70  md:fixed flex flex-col  overflow-x-hidden  border-r border-gray-300 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 dark:bg-black/70  md:fixed flex flex-col  overflow-x-hidden scroll-smooth  hide-scrollbar w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}>
         <Link to={"/"} className="cursor-pointer flex items-center gap-3">

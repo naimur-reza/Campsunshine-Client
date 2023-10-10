@@ -7,10 +7,10 @@ import ContactUs from "../../components/Home/ContactUs/ContactUs";
 // import "../../../src/assets/home/cool.svg";
 const Home = () => {
   return (
-    <div className=" ">
+    <div className="">
       <Slider />
       <Services />
-      <div className="">
+      <div className="dark:bg-[url('https://svgshare.com/i/u7Z.svg')] bg-cover  bg-[url('https://svgshare.com/i/u9z.svg')]">
         <PopularClasses />
         <PopularInstructors />
       </div>

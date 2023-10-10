@@ -5,7 +5,7 @@ const InstructorCard = ({ info }) => {
   const { teacher, className, email, image, enrolled, name } = info;
   return (
     <>
-      <div className=" dark:bg-black/60 border-sky-600/70 border  overflow-hidden backdrop-blur-sm   relative  space-y-2 text-center rounded-md mb-10 bg-gray-200/70">
+      <div className=" dark:bg-black/40 border-sky-600/60 border  overflow-hidden backdrop-blur-sm   relative  space-y-2 text-center rounded-md mb-10 bg-gray-200/30">
         <div className="relative overflow-hidden  h-48 w-48 mx-auto flex justify-center border border-sky-300 rounded-full p-0.5 my-10">
           <img
             src={teacher.image}

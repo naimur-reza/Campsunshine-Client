@@ -32,7 +32,7 @@ const PopularInstructors = () => {
       />
 
       <Swiper
-        spaceBetween={20}
+        spaceBetween={40}
         breakpoints={{
           // when window width is >= 640px
           640: {

@@ -1,27 +1,28 @@
 import React from "react";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
-
+import { MdPeople } from "react-icons/md";
+import { AiOutlineMail } from "react-icons/ai";
 const InstructorCard = ({ info }) => {
   const { teacher, className, email, image, enrolled, name } = info;
   return (
     <>
-      <div className=" bg-gray-100  overflow-hidden backdrop-blur-sm rounded  relative  space-y-2 text-center ">
-        <div className="relative">
+      <div className=" bg-black/60 border-sky-600/70 border  overflow-hidden backdrop-blur-sm rounded  relative  space-y-2 text-center ">
+        <div className="relative h-48 w-48 mx-auto flex justify-center border border-sky-300 rounded-full p-0.5 my-10">
           <img
             src={teacher.image}
-            className="h-72 object-cover object-center w-full rounded-sm"
-            alt=""
+            className="h-full rounded-full object-cover object-center w-full  "
+            alt="teacher_image"
           />
-          <h1 className="text-xs  font-semibold text-white/70 px-2 py-1 rounded-full bg-gradient-to-t from-sky-700/80 to-sky-500/70   absolute left-2 bottom-2">
-            {name}
-          </h1>
         </div>
-        <h2 className="text-sm text-black dark:text-gray-200">{className}</h2>
-        <p className="text-sm text-gray-100">Students: {enrolled} </p>
-        <p className="bg-white/80  text-sm py-1 rounded text-gray-700">
-          {email}
+        <h1 className="text-white">{name}</h1>
+        <h2 className="text-sm  dark:text-gray-400 "> {className}</h2>
+        <p className="text-sm  flex items-center gap-2 justify-center text-gray-400">
+          <MdPeople /> Students: {enrolled}{" "}
         </p>
-        <div className="absolute inset-0   flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 duration-400 cursor-pointer transition ">
+        <p className="bg-sky-500/20 justify-center  text-sm py-1 rounded text-gray-400 flex items-center gap-2">
+          <AiOutlineMail /> {email}
+        </p>
+        {/* <div className="absolute inset-0   flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 duration-400 cursor-pointer transition ">
           <div>
             <div className="flex gap-5  justify-center ">
               <BsFacebook
@@ -39,7 +40,7 @@ const InstructorCard = ({ info }) => {
             </div>
             <h1 className="mt-8 text-gray-100 px-5">{className}</h1>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

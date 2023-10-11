@@ -6,7 +6,7 @@ import SignUp from "../pages/Authentication/SignUp/SignUp";
 import DashboardLayout from "../layout/DashboardLayout";
 
 import PrivateRoute from "./PrivateRoute";
-import Spinner from "../components/shared/Spinner/Spinner";
+import SkeletonLoading from "../components/SkeletonLoading";
 import ManageClasses from "../pages/Dashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import AddClass from "../pages/Dashboard/AddClass";
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/1",
-    element: <Spinner />,
+    element: <SkeletonLoading />,
   },
   {
     path: "/dashboard",

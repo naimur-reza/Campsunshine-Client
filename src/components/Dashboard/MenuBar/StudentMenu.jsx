@@ -13,7 +13,7 @@ const StudentMenu = () => {
         }
         to={"/dashboard/my-selected-classes"}>
         <SiGoogleclassroom size={20} />
-        My Selected classes
+        Selected classes
       </NavLink>
       <NavLink
         className={({ isActive }) =>
@@ -23,7 +23,7 @@ const StudentMenu = () => {
         }
         to={"/dashboard/my-enrolled-classes"}>
         <FiUsers size={20} />
-        My Enrolled Classes
+        Enrolled Classes
       </NavLink>
     </div>
   );

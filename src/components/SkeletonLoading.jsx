@@ -2,9 +2,10 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 const SkeletonLoading = () => {
-  const isDark = localStorage.getItem("darkMode");
+  const isDark = localStorage.getItem("darkMode") === "true";
   const baseColor = isDark ? "#00000080" : undefined;
   const highlightColor = isDark ? "#333333" : undefined;
+  console.log(isDark);
   return (
     <div className="grid pt-[92px] grid-cols-1 lg:grid-cols-3 gap-5 place-items-center">
       {Array.from({ length: 20 }, (item, i) => (

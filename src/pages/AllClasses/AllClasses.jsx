@@ -9,14 +9,16 @@ import { ScrollRestoration } from "react-router-dom";
 import EmptyState from "../../components/Dashboard/EmptyState";
 import SkeletonLoading from "../../components/SkeletonLoading";
 const Classes = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    setLoading(true);
+    setTimeout(() => {
+      setLoading(false); // After a 2-second delay, set loading to false
+    }, 2000);
+
     getAllClasses().then((res) => {
       setClasses(res);
-      setLoading(false);
     });
   }, []);
 

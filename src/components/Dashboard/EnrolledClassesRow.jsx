@@ -8,13 +8,13 @@ const EnrolledClassesRow = ({ classInfo, index }) => {
     <tr>
       <td className="px-3">{index + 1}.</td>
       <td>
-        <div className="bg-gray-100 dark:bg-transparent w-fit p-2 rounded-lg my-1">
+        <div className="  dark:bg-transparent w-fit p-2 rounded-lg my-1">
           <img
             src={image}
             className="w-36 object-cover h-28 my-1 rounded-md "
             alt=""
           />
-          <h1 className="text-sm">{className}</h1>
+          <h1 className="text-xs">{className}</h1>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm">{paymentIntentId}</td>

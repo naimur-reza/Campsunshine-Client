@@ -45,7 +45,7 @@ const Classes = () => {
       <div className="pt-[92px]  my-container">
         <SectionTitle title="All Classes" subTitle="Find what you want!" />
         {loading && <SkeletonLoading />}
-        {Array.isArray(classes) && classes.length > 0 && classes ? (
+        {Array.isArray(classes) && classes.length > 0 && classes && (
           <>
             <motion.ul
               className="container"
@@ -67,8 +67,6 @@ const Classes = () => {
               </div>
             </motion.ul>
           </>
-        ) : (
-          <EmptyState />
         )}
       </div>
     </>

@@ -8,7 +8,7 @@ const SkeletonLoading = () => {
   console.log(isDark);
   return (
     <div className="grid pt-[92px] grid-cols-1 lg:grid-cols-3 gap-5 place-items-center">
-      {Array.from({ length: 20 }, (item, i) => (
+      {Array.from({ length: 12 }, (item, i) => (
         <div key={i} className="w-80 ">
           <Skeleton
             highlightColor={highlightColor}

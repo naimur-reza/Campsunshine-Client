@@ -2,6 +2,18 @@
 # Summer Camp School Web App
 
 Welcome to the Summer Camp School Full-Stack Website project! This app informs students about language schools and enables course enrollment.
+<br/>
+
+Use the following credentials for admin login:
+
+- **Email:** `admin@gmail.com`
+- **Password:** `Admin123@#$`
+  
+Use the following credentials for instructor login:
+
+- **Email:** `instructor@gmail.com`
+- **Password:** `Instructor123@#$`
+  
 ## Screenshots
 
 ![App Screenshot](https://i.ibb.co/Z8SpGTb/Screenshot-52.png)
